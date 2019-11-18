@@ -12,36 +12,38 @@ class UploadItem extends Component {
   }
 
   descChangeHandler = event => {
-    this.setState = { description: event.target.value };
+    this.setState({ description: event.target.value });
   };
 
   priceChangeHandler = event => {
-    this.setState = { price: event.target.value };
+    this.setState({ price: event.target.value });
   };
 
   // sellerChangeHandler = event => {
-  //   this.setState = { seller: this.props.seller };
+  //   this.setState({ seller: this.props.seller });
   // };
 
   nameChangeHandler = event => {
-    this.setState = { name: event.target.value };
+    this.setState({ name: event.target.value });
   };
 
   fileChangeHandler = event => {
     console.log("test");
-    this.setState = { file: event.target.file[0] };
+    this.setState({ file: event.target.files[0] });
   };
 
-  submitHandler = evt => {
-    console.log(this.state);
-    evt.preventDefault();
+  submitHandler = async event => {
+    console.log("new item submitted");
+    event.preventDefault();
     let data = new FormData();
     data.append("description", this.state.description);
     data.append("price", this.state.price);
     data.append("name", this.state.name);
     data.append("seller", this.state.seller);
     data.append("img", this.state.file);
-    fetch("/upload-item", { method: "POST", body: data });
+    let response = await fetch("/upload-item", { method: "POST", body: data });
+    let body = await response.json();
+    console.log("body", body);
   };
 
   render = () => {

@@ -30,6 +30,7 @@ app.post("/upload-item", upload.single("img"), (req, res) => {
     name: name,
     seller: seller
   });
+  res.json({ success: true });
 });
 
 app.post("/signup", upload.none(), (req, res) => {
