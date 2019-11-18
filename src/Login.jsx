@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 class UnconnectedLogin extends Component {
   constructor(props) {
     super(props);
@@ -17,18 +18,6 @@ class UnconnectedLogin extends Component {
   handlePasswordChange = event => {
     console.log("new password", event.target.value);
     this.setState({ password: event.target.value });
-  };
-
-  render = () => {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <div>Username</div>
-        <input type="text" onChange={this.handleUsernameChange} />
-        <div>Password</div>
-        <input type="text" onChange={this.handlePasswordChange} />
-        <input type="submit" />
-      </form>
-    );
   };
 
   handleSubmit = async event => {
@@ -54,6 +43,23 @@ class UnconnectedLogin extends Component {
       type: "login-success"
     });
   };
+
+  render = () => {
+    return (
+      <div>
+        <Link to="/">Homepage</Link>
+        <form onSubmit={this.handleSubmit}>
+          <h1>Login</h1>
+          <div>Username</div>
+          <input type="text" onChange={this.handleUsernameChange} />
+          <div>Password</div>
+          <input type="text" onChange={this.handlePasswordChange} />
+          <input type="submit" />
+        </form>
+      </div>
+    );
+  };
 }
+
 let Login = connect()(UnconnectedLogin);
 export default Login;

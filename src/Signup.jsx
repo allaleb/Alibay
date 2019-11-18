@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 class UnconnectedSignup extends Component {
   constructor() {
     super();
@@ -37,6 +38,8 @@ class UnconnectedSignup extends Component {
   render = () => {
     return (
       <div>
+        <Link to="/">Homepage</Link>
+        <h1>Signup</h1>
         <form onSubmit={this.submitHandler}>
           Username
           <input
