@@ -19,9 +19,9 @@ class UploadItem extends Component {
     this.setState = { price: event.target.value };
   };
 
-  sellerChangeHandler = event => {
-    this.setState = { seller: this.props.seller };
-  };
+  // sellerChangeHandler = event => {
+  //   this.setState = { seller: this.props.seller };
+  // };
 
   nameChangeHandler = event => {
     this.setState = { name: event.target.value };
@@ -33,6 +33,7 @@ class UploadItem extends Component {
   };
 
   submitHandler = evt => {
+    console.log(this.state);
     evt.preventDefault();
     let data = new FormData();
     data.append("description", this.state.description);
