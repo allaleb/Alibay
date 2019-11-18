@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-let multer = require("multer");
-let upload = multer({ dest: __dirname + "/uploads/" });
 
 class UploadItem extends Component {
   constructor() {
