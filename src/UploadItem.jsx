@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-let multer = require("multer");
-let upload = multer({ dest: __dirname + "/uploads/" });
 
 class UploadItem extends Component {
   constructor() {
@@ -22,7 +20,7 @@ class UploadItem extends Component {
     this.setState = { seller: this.props.seller };
   };
   nameChangeHandler = event => {
-    this.setState = { nameame: event.target.value };
+    this.setState = { name: event.target.value };
   };
   fileChangeHandler = event => {
     this.setState = { file: event.target.files[0] };
