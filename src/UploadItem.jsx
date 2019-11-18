@@ -23,7 +23,8 @@ class UploadItem extends Component {
     this.setState = { name: event.target.value };
   };
   fileChangeHandler = event => {
-    this.setState = { file: event.target.files[0] };
+    console.log("test");
+    this.setState = { file: event.target.file[0] };
   };
   submitHandler = evt => {
     evt.preventDefault();
@@ -40,20 +41,20 @@ class UploadItem extends Component {
       <form onSubmit={this.submitHandler}>
         <input
           type="text"
+          onChange={this.nameChangeHandler}
+          placeholder="Item Name"
+        ></input>
+        <input
+          type="text"
           onChange={this.descChangeHandler}
-          value="Description"
+          placeholder="Item Description"
         ></input>
         <input
           type="text"
           onChange={this.priceChangeHandler}
-          value="Price"
+          placeholder="Price"
         ></input>
         <input type="file" onChange={this.fileChangeHandler} />
-        <input
-          type="text"
-          onChange={this.nameChangeHandler}
-          value="Item Name"
-        ></input>
         <input type="submit" value="submit item"></input>
       </form>
     );
