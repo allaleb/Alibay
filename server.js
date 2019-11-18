@@ -21,7 +21,7 @@ app.post("/upload-item", upload.single("img"), (req, res) => {
   let seller = req.body.seller;
   let price = req.body.price;
   let name = req.body.name;
-  let file = req.img;
+  let file = req.file;
   let frontendPath = "/uploads/" + file.filename;
   dbo.collection("items").insertOne({
     description: description,
