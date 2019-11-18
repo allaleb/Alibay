@@ -10,22 +10,28 @@ class UploadItem extends Component {
       file: ""
     };
   }
+
   descChangeHandler = event => {
     this.setState = { description: event.target.value };
   };
+
   priceChangeHandler = event => {
     this.setState = { price: event.target.value };
   };
+
   sellerChangeHandler = event => {
     this.setState = { seller: this.props.seller };
   };
+
   nameChangeHandler = event => {
     this.setState = { name: event.target.value };
   };
+
   fileChangeHandler = event => {
     console.log("test");
     this.setState = { file: event.target.file[0] };
   };
+
   submitHandler = evt => {
     evt.preventDefault();
     let data = new FormData();
@@ -36,6 +42,7 @@ class UploadItem extends Component {
     data.append("img", this.state.file);
     fetch("/upload-item", { method: "POST", body: data });
   };
+
   render = () => {
     return (
       <form onSubmit={this.submitHandler}>
@@ -60,4 +67,5 @@ class UploadItem extends Component {
     );
   };
 }
+
 export default UploadItem;

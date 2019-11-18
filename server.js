@@ -18,15 +18,17 @@ MongoClient.connect(url, { useNewUrlParser: true }, (err, db) => {
 app.post("/upload-item", upload.single("img"), (req, res) => {
   console.log("request to upload new item");
   let description = req.body.description;
-  let file = req.file;
-  let frontendPath = "/uploads/" + file.filename;
+  let seller = req.body.seller;
   let price = req.body.price;
   let name = req.body.name;
+  let file = req.img;
+  let frontendPath = "/uploads/" + file.filename;
   dbo.collection("items").insertOne({
     description: description,
     frontendPath: frontendPath,
     price: price,
-    name: name
+    name: name,
+    seller: seller
   });
 });
 
