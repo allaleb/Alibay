@@ -10,10 +10,10 @@ class UnconnectedHomepage extends Component {
         <h1>AJA</h1>
         <Link to="/signup">Signup</Link>
         <Link to="/login">Login</Link>
+        <Link to="/cart">Cart</Link>
         <UploadItem />
       </div>
     );
-    <UploadItem />;
   };
 }
 

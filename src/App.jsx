@@ -5,11 +5,7 @@ import Login from "./Login.jsx";
 import Signup from "./Signup.jsx";
 import Homepage from "./Homepage.jsx";
 import UploadItem from "./UploadItem.jsx";
-
-// renderSignUp = routerData => {
-//   return;
-// };
-
+import Cart from "./Cart.jsx";
 class UnconnectedApp extends Component {
   render = () => {
     if (this.props.login) {
@@ -23,14 +19,11 @@ class UnconnectedApp extends Component {
       <BrowserRouter>
         <div>
           <div>
-            {/* <Homepage /> */}
             <Route exact={true} path="/" component={Homepage} />
             <Route exact={true} path="/signup" component={Signup} />
             <Route exact={true} path="/login" component={Login} />
+            <Route exact={true} path="/cart" component={Cart} />
             <div></div>
-            {/* <h1>Login</h1>
-            <Login /> */}
-          
           </div>
         </div>
       </BrowserRouter>
