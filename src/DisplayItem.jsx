@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 class DisplayItem extends Component {
   render() {
     return (
-      <div className="marketplace">
+      <div>
         <Link to={"/itemdetails/" + this.props.item._id}>
           <img src={this.props.item.frontendPath} width="200px" />
         </Link>

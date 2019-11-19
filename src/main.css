@@ -79,5 +79,10 @@ input[type="file"] {
 
 .marketplace {
   display: grid;
+  grid-template-columns: 200px 200px 200px 200px;
+  grid-column-gap: 50px;
+  grid-row-gap: 50px;
+  justify-content: center;
   font-family: "Roboto", sans-serif;
+  margin: 50px;
 }

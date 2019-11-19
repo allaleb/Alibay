@@ -21,9 +21,11 @@ class UnconnectedMarketplace extends Component {
             HOME
           </Link>
         </div>
-        {this.props.items.map(item => {
-          return <DisplayItem item={item} />;
-        })}
+        <div className="marketplace">
+          {this.props.items.map(item => {
+            return <DisplayItem item={item} />;
+          })}
+        </div>
       </div>
     );
   }
