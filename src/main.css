@@ -79,4 +79,5 @@ input[type="file"] {
 
 .marketplace {
   display: grid;
+  font-family: "Roboto", sans-serif;
 }
