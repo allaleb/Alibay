@@ -7,7 +7,7 @@ class UnconnectedHomepage extends Component {
   render = () => {
     return (
       <div>
-        <div className="navbar">
+        <div className="navbar-home">
           <Link className="link" to="/signup">
             SIGN UP
           </Link>

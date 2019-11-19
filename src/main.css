@@ -29,6 +29,13 @@ body {
   justify-content: center;
 }
 
+.store-mini {
+  font-family: "Fredoka One", cursive;
+  font-size: 23px;
+  margin: 8px;
+  padding: 8px;
+}
+
 .link {
   text-decoration: none;
   color: black;
@@ -37,9 +44,18 @@ body {
   padding: 8px;
 }
 
-.navbar {
+.navbar-page {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dotted;
+  background-color: #fcf9ea;
+}
+
+.navbar-home {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   border-bottom: 1px dotted;
   background-color: #fcf9ea;
 }
