@@ -18,9 +18,10 @@ class UnconnectedItemDetails extends Component {
         </div>
         <div>
           <h3>{item.name}</h3>
-          <h3>{item.price}</h3>
-          <img src={item.frontendPath} />
           <h3>{item.seller}</h3>
+          <img src={item.frontendPath} />
+          <h3>{item.description}</h3>
+          <h3>{item.price}</h3>
           <h3>{item.reviews}</h3>
           <button>Add to cart</button>
         </div>
