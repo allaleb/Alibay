@@ -15,7 +15,7 @@ MongoClient.connect(url, { useNewUrlParser: true }, (err, db) => {
   dbo = db.db("alibayDB");
 });
 
-app.get("/all-items", (req, res) => {
+app.get("/all-items", upload.none(), (req, res) => {
   console.log("/all-items endpoint hit");
   dbo
     .collection("items")
@@ -27,6 +27,14 @@ app.get("/all-items", (req, res) => {
       }
       res.send(JSON.stringify(item));
     });
+});
+
+app.post("/upload-review", upload.none(), (req, res) => {
+  console.log("request to upload review");
+  let reviewer = req.body.reviewer;
+  let review = req.body.review;
+  let item = req.body.item;
+  dbo.collection("items").
 });
 
 app.post("/upload-item", upload.single("img"), (req, res) => {

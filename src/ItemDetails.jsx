@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import UploadItem from "./UploadItem.jsx";
+import ItemReviews from "./ItemReviews.jsx";
 
 class UnconnectedItemDetails extends Component {
   handleAdd = event => {
@@ -26,8 +27,8 @@ class UnconnectedItemDetails extends Component {
           <img src={item.frontendPath} />
           <h3>{item.description}</h3>
           <h3>{item.price}</h3>
-          <h3>{item.reviews}</h3>
-          <button onCLick={this.handleAdd}>Add to cart</button>
+          <ItemReviews item={item} />
+          <button onClick={this.handleAdd}>Add to cart</button>
         </div>
       </div>
     );

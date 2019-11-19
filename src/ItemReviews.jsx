@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
-class ItemReviews extends Component {
+class UnconnectedItemReviews extends Component {
   constructor() {
     super();
     this.state = {
@@ -17,13 +18,13 @@ class ItemReviews extends Component {
     let data = new FormData();
     data.append("review", this.state.review);
     data.append("reviewer", this.state.reviewer);
-    data.append("itembeingreviewed", this.state.itemBeingReviewed);
+    data.append("item", this.state.itemBeingReviewed);
+    data.append("itemId", this.props.item._id);
     let response = await fetch("/upload-review", {
       method: "POST",
       body: data
     });
     let body = await response.text();
-    ß;
     body = JSON.parse(body);
   };
 
@@ -35,4 +36,5 @@ class ItemReviews extends Component {
     );
   };
 }
+
 export default ItemReviews;
