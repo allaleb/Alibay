@@ -7,6 +7,7 @@ import Homepage from "./Homepage.jsx";
 import UploadItem from "./UploadItem.jsx";
 import Cart from "./Cart.jsx";
 import Marketplace from "./Marketplace.jsx";
+import ItemDetails from "./ItemDetails.jsx";
 
 class UnconnectedApp extends Component {
   render = () => {
@@ -26,6 +27,13 @@ class UnconnectedApp extends Component {
             <Route exact={true} path="/login" component={Login} />
             <Route exact={true} path="/cart" component={Cart} />
             <Route exact={true} path="/marketplace" component={Marketplace} />
+            <Route
+              exact={true}
+              path="/itemdetails/:itemId"
+              render={routerData => (
+                <ItemDetails itemId={routerData.match.params.itemId} />
+              )}
+            />
             <div></div>
           </div>
         </div>
@@ -33,9 +41,6 @@ class UnconnectedApp extends Component {
     );
   };
 }
-let mapStateToProps = state => {
-  return { login: state.loggedIn };
-};
 
-let App = connect(mapStateToProps)(UnconnectedApp);
+let App = connect()(UnconnectedApp);
 export default App;
