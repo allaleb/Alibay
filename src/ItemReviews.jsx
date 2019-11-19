@@ -22,8 +22,11 @@ class ItemReviews extends Component {
       method: "POST",
       body: data
     });
-    let body = await response.json();
+    let body = await response.text();
+    ß;
+    body = JSON.parse(body);
   };
+
   render = () => {
     return (
       <form onSubmit={this.submitHandler}>
