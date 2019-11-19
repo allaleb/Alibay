@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+
 class UnconnectedLogin extends Component {
   constructor(props) {
     super(props);
@@ -47,14 +48,18 @@ class UnconnectedLogin extends Component {
   render = () => {
     return (
       <div>
-        <Link to="/">Homepage</Link>
-        <form onSubmit={this.handleSubmit}>
-          <h1>Login</h1>
+        <div className="navbar">
+          <Link className="link" to="/">
+            HOME
+          </Link>
+        </div>
+        <h1 className="store-name">Login</h1>
+        <form className="form" onSubmit={this.handleSubmit}>
           <div>Username</div>
           <input type="text" onChange={this.handleUsernameChange} />
           <div>Password</div>
           <input type="text" onChange={this.handlePasswordChange} />
-          <input type="submit" />
+          <input type="submit" value="Login" />
         </form>
       </div>
     );
@@ -62,4 +67,5 @@ class UnconnectedLogin extends Component {
 }
 
 let Login = connect()(UnconnectedLogin);
+
 export default Login;

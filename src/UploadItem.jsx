@@ -65,7 +65,7 @@ class UploadItem extends Component {
           placeholder="Price"
         ></input>
         <input type="file" onChange={this.fileChangeHandler} />
-        <input type="submit" value="submit item"></input>
+        <input type="submit" value="Submit item"></input>
       </form>
     );
   };

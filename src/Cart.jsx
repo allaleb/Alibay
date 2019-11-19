@@ -7,11 +7,16 @@ class UnconnectedCart extends Component {
   render = () => {
     return (
       <div>
-        <Link to="/">Homepage</Link>
+        <div className="navbar">
+          <Link className="link" to="/">
+            HOME
+          </Link>
+        </div>
       </div>
     );
   };
 }
 
 let Cart = connect()(UnconnectedCart);
+
 export default Cart;
