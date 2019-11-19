@@ -29,13 +29,13 @@ app.get("/all-items", upload.none(), (req, res) => {
     });
 });
 
-app.post("/upload-review", upload.none(), (req, res) => {
-  console.log("request to upload review");
-  let reviewer = req.body.reviewer;
-  let review = req.body.review;
-  let item = req.body.item;
-  dbo.collection("items").
-});
+//app.post("/upload-review", upload.none(), (req, res) => {
+//console.log("request to upload review");
+//let reviewer = req.body.reviewer;
+//let review = req.body.review;
+//let item = req.body.item;
+//dbo.collection("items").
+//});
 
 app.post("/upload-item", upload.single("img"), (req, res) => {
   console.log("request to upload new item");
