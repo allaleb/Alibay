@@ -18,6 +18,10 @@ let reducer = (state, action) => {
     return { ...state, items: action.items };
   }
 
+  if (action.type === "log-out") {
+    return { ...state, loggedIn: false };
+  }
+
   return state;
 };
 const store = createStore(

@@ -10,7 +10,6 @@ class UnconnectedLogout extends Component {
     this.props.dispatch({
       type: "log-out"
     });
-    this.setState({ loggedIn: false });
   };
 
   render = () => {
