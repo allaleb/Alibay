@@ -15,6 +15,20 @@ MongoClient.connect(url, { useNewUrlParser: true }, (err, db) => {
   dbo = db.db("alibayDB");
 });
 
+app.get("/all-items", (req, res) => {
+  console.log("/all-items endpoint hit");
+  dbo
+    .collection("items")
+    .find({})
+    .toArray((error, item) => {
+      if (error) {
+        console.log("error", error);
+        res.send(JSON.stringify({ success: false }));
+      }
+      res.send(JSON.stringify(item));
+    });
+});
+
 app.post("/upload-item", upload.single("img"), (req, res) => {
   console.log("request to upload new item");
   let description = req.body.description;
@@ -30,7 +44,7 @@ app.post("/upload-item", upload.single("img"), (req, res) => {
     name: name,
     seller: seller
   });
-  res.json({ success: true });
+  res.send(JSON.stringify({ success: true }));
 });
 
 app.post("/signup", upload.none(), (req, res) => {
@@ -40,21 +54,23 @@ app.post("/signup", upload.none(), (req, res) => {
   dbo.collection("users").findOne({ username: username }, (error, user) => {
     if (error) {
       console.log("/signup error", error);
-      res.json({ success: false, error });
+      res.send(JSON.stringify({ success: false, error }));
     }
     if (user !== null) {
-      res.json({ success: false });
+      res.send(JSON.stringify({ success: false }));
     }
     if (user === null) {
       dbo
         .collection("users")
         .insertOne({ username: username, password: password })
-        .then(() => res.json({ success: true }))
+        .then(() => res.send({ success: true }))
         .catch(error =>
-          res.json({
-            success: false,
-            error
-          })
+          res.send(
+            JSON.stringify({
+              success: false,
+              error
+            })
+          )
         );
     }
   });
@@ -67,14 +83,14 @@ app.post("/login", upload.none(), (req, res) => {
   dbo.collection("users").findOne({ username: username }, (error, user) => {
     if (error) {
       console.log("/login error", error);
-      res.json({ success: false, error });
+      res.send(JSON.stringify({ success: false, error }));
       if (user === null) {
-        res.json({ success: false });
+        res.send(JSON.stringify({ success: false }));
       }
       if (user.password === password) {
-        res.json({ success: true });
+        res.send(JSON.stringify({ success: true }));
       }
-      res.json({ success: false });
+      res.send(JSON.stringify({ success: false }));
     }
   });
 });
