@@ -2,7 +2,8 @@ import { createStore } from "redux";
 
 let initialState = {
   loggedIn: false,
-  items: []
+  items: [],
+  cart: []
 };
 
 let reducer = (state, action) => {
