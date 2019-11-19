@@ -5,22 +5,23 @@ import UploadItem from "./UploadItem.jsx";
 
 class UnconnectedItemDetails extends Component {
   render = () => {
+    let item = this.props.items.find(item => {
+      return item._id === this.props.itemId;
+    });
     return (
       <div>
-        <Link to="/">Homepage</Link>
-        <h3>Your Cart</h3>
-        <h4>Total</h4>
-        <button>Checkout</button>
-        <div className="navbar">
-          <Link className="link" to="/">
-            HOME
-          </Link>
-        </div>
+        ITEM DETAILS ID: {this.props.itemId}
+        <h3>{item.name}</h3>
+        <h3>{item.price}</h3>
       </div>
     );
   };
 }
 
-let ItemDetails = connect()(UnconnectedItemDetails);
+let mapStateToProps = state => {
+  return { items: state.items };
+};
+
+let ItemDetails = connect(mapStateToProps)(UnconnectedItemDetails);
 
 export default ItemDetails;
