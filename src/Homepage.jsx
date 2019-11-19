@@ -24,9 +24,6 @@ class UnconnectedHomepage extends Component {
         </Link>
         <div>
           <UploadItem />
-          <Link className="link" to="/itemdetails">
-            ITEM DETAILS
-          </Link>
         </div>
       </div>
     );

@@ -10,9 +10,20 @@ class UnconnectedItemDetails extends Component {
     });
     return (
       <div>
-        ITEM DETAILS ID: {this.props.itemId}
-        <h3>{item.name}</h3>
-        <h3>{item.price}</h3>
+        <div className="navbar-page">
+          <div className="store-mini">Jasallanda Sweet Market</div>
+          <Link className="link" to="/">
+            HOME
+          </Link>
+        </div>
+        <div>
+          <h3>{item.name}</h3>
+          <h3>{item.price}</h3>
+          <img src={item.frontendPath} />
+          <h3>{item.seller}</h3>
+          <h3>{item.reviews}</h3>
+          <button>Add to cart</button>
+        </div>
       </div>
     );
   };
