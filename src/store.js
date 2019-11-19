@@ -23,6 +23,10 @@ let reducer = (state, action) => {
     return { ...state, loggedIn: false };
   }
 
+  if (action.type === "add-success") {
+    return { ...state, items: action.items };
+  }
+
   return state;
 };
 const store = createStore(

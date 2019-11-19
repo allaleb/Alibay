@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import UploadItem from "./UploadItem.jsx";
 
 class UnconnectedItemDetails extends Component {
+  handleAdd = event => {
+    this.props.dispatch({ type: "add-success" });
+  };
+
   render = () => {
     let item = this.props.items.find(item => {
       return item._id === this.props.itemId;
@@ -23,7 +27,7 @@ class UnconnectedItemDetails extends Component {
           <h3>{item.description}</h3>
           <h3>{item.price}</h3>
           <h3>{item.reviews}</h3>
-          <button>Add to cart</button>
+          <button onCLick={this.handleAdd}>Add to cart</button>
         </div>
       </div>
     );
