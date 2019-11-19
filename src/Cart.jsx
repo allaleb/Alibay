@@ -8,6 +8,9 @@ class UnconnectedCart extends Component {
     return (
       <div>
         <Link to="/">Homepage</Link>
+        <h3>Your Cart</h3>
+        <h4>Total</h4>
+        <button>Checkout</button>
       </div>
     );
   };
