@@ -12,6 +12,12 @@ class Profile extends Component {
   render() {
     return (
       <div>
+        <div className="navbar-page">
+          <div className="store-mini">Jasallanda Sweet Market</div>
+          <Link className="link" to="/">
+            HOME
+          </Link>
+        </div>
         <div>{"This profile page Belongs to: " + this.props.profile.name}</div>
         <div>{"About Me: " + this.props.profile.aboutMe}</div>
         <div>
