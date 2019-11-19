@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+
 class UnconnectedSignup extends Component {
   constructor() {
     super();
@@ -38,9 +39,13 @@ class UnconnectedSignup extends Component {
   render = () => {
     return (
       <div>
-        <Link to="/">Homepage</Link>
-        <h1>Signup</h1>
-        <form onSubmit={this.submitHandler}>
+        <div className="navbar">
+          <Link className="link" to="/">
+            HOME
+          </Link>
+        </div>
+        <h1 className="store-name">Signup</h1>
+        <form className="form" onSubmit={this.submitHandler}>
           Username
           <input
             type="text"
@@ -53,7 +58,7 @@ class UnconnectedSignup extends Component {
             value={this.state.password}
             onChange={this.passwordHandler}
           ></input>
-          <input type="submit" value="Sign up!"></input>
+          <input type="submit" value="Sign up"></input>
         </form>
       </div>
     );
@@ -65,4 +70,5 @@ let mapStateToProps = state => {
   };
 };
 let Signup = connect(mapStateToProps)(UnconnectedSignup);
+
 export default Signup;

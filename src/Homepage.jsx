@@ -7,11 +7,21 @@ class UnconnectedHomepage extends Component {
   render = () => {
     return (
       <div>
-        <h1>AJA</h1>
-        <Link to="/signup">Signup</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/cart">Cart</Link>
-        <UploadItem />
+        <div className="navbar">
+          <Link className="link" to="/signup">
+            SIGN UP
+          </Link>
+          <Link className="link" to="/login">
+            LOG IN
+          </Link>
+          <Link className="link" to="/cart">
+            CART
+          </Link>
+        </div>
+        <h1 className="store-name">Jasallanda Sweet Market</h1>
+        <div>
+          <UploadItem />
+        </div>
       </div>
     );
   };

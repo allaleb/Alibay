@@ -11,10 +11,16 @@ class UnconnectedCart extends Component {
         <h3>Your Cart</h3>
         <h4>Total</h4>
         <button>Checkout</button>
+        <div className="navbar">
+          <Link className="link" to="/">
+            HOME
+          </Link>
+        </div>
       </div>
     );
   };
 }
 
 let Cart = connect()(UnconnectedCart);
+
 export default Cart;

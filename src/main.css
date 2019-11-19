@@ -1,5 +1,5 @@
 body {
-  background-color: #bbb;
+  background-color: #ecfcff;
   margin: 0;
 }
 
@@ -20,4 +20,43 @@ body {
   left: 200px;
   right: 200px;
   background-color: white;
+}
+
+.store-name {
+  font-size: 50px;
+  font-family: "Fredoka One", cursive;
+  display: flex;
+  justify-content: center;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+  font-family: "Roboto", sans-serif;
+  margin: 8px;
+  padding: 8px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  border-bottom: 1px dotted;
+  background-color: #fcf9ea;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+  padding: 8px;
+}
+
+input[type="text"] {
+  border-radius: 5px;
+  border: none;
+}
+
+input[type="file"] {
+  border-radius: 5px;
+  border: none;
 }
