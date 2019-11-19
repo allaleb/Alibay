@@ -1,7 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import DisplayItem from "./DisplayItem.jsx";
 
-class Marketplace extends Component {
+class UnconnectedMarketplace extends Component {
+  componentDidMount = async () => {
+    let response = await fetch("/all-items");
+    let items = await response.text();
+    items = JSON.parse(items);
+    console.log("items", items);
+    this.props.dispatch({ type: "set-items", items: items });
+  };
+
   render() {
     return (
       <div>
@@ -11,21 +21,18 @@ class Marketplace extends Component {
             HOME
           </Link>
         </div>
-        <div className="marketplace">
-          <div>
-            <Link to={"/itemdetails" + this.props.id}>
-              <img src={this.props.frontendPath} height="100px" />
-            </Link>
-            <div>Description</div>
-            <div>Price</div>
-            <Link to={"/seller/" + this.props.sellerId}>
-              Seller information
-            </Link>
-          </div>
-        </div>
+        {this.props.items.map(item => {
+          return <DisplayItem item={item} />;
+        })}
       </div>
     );
   }
 }
+
+let mapStateToProps = state => {
+  return { items: state.items };
+};
+
+let Marketplace = connect(mapStateToProps)(UnconnectedMarketplace);
 
 export default Marketplace;
