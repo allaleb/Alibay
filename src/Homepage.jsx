@@ -19,6 +19,9 @@ class UnconnectedHomepage extends Component {
           </Link>
         </div>
         <h1 className="store-name">Jasallanda Sweet Market</h1>
+        <Link className="link" to="/marketplace">
+          MARKETPLACE
+        </Link>
         <div>
           <UploadItem />
         </div>

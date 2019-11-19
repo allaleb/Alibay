@@ -6,6 +6,7 @@ import Signup from "./Signup.jsx";
 import Homepage from "./Homepage.jsx";
 import UploadItem from "./UploadItem.jsx";
 import Cart from "./Cart.jsx";
+import Marketplace from "./Marketplace.jsx";
 
 class UnconnectedApp extends Component {
   render = () => {
@@ -24,6 +25,7 @@ class UnconnectedApp extends Component {
             <Route exact={true} path="/signup" component={Signup} />
             <Route exact={true} path="/login" component={Login} />
             <Route exact={true} path="/cart" component={Cart} />
+            <Route exact={true} path="/marketplace" component={Marketplace} />
             <div></div>
           </div>
         </div>
