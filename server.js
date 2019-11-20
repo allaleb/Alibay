@@ -169,11 +169,7 @@ app.get("/search", upload.none(), (req, res) => {
     });
 });
 
-//this endpoint will retrieve items based on the search criteria
-//sent from the frontend
-
 app.all("/*", (req, res, next) => {
-  // needed for react router
   res.sendFile(__dirname + "/build/index.html");
 });
 
