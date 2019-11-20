@@ -24,11 +24,14 @@ class UnconnectedProfile extends Component {
               Jasallanda Sweet Market
             </Link>
           </div>
-          <Link className="link" to="/logout">
-            <button onClick={this.logOutHandler}>Log Out</button>
+          <Link className="link" to="/marketplace">
+            Marketplace
+          </Link>
+          <Link className="link" to="/" onClick={this.logOutHandler}>
+            Log Out
           </Link>
           <Link className="link" to="/">
-            HOME
+            Home
           </Link>
         </div>
         {/* <div>{"This profile page Belongs to: " + this.props.profile.name}</div>
