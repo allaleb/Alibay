@@ -40,7 +40,11 @@ class UnconnectedSignup extends Component {
     return (
       <div>
         <div className="navbar-page">
-          <div className="store-mini">Jasallanda Sweet Market</div>
+          <div className="store-mini">
+            <Link className="link" to="/">
+              Jasallanda Sweet Market
+            </Link>
+          </div>
           <Link className="link" to="/">
             HOME
           </Link>
