@@ -16,6 +16,9 @@ class UnconnectedItemDetails extends Component {
       <div>
         <div className="navbar-page">
           <div className="store-mini">Jasallanda Sweet Market</div>
+          <Link className="link" to="/marketplace">
+            Back
+          </Link>
           <Link className="link" to="/">
             HOME
           </Link>
