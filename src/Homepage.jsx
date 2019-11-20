@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import UploadItem from "./UploadItem.jsx";
 
 class UnconnectedHomepage extends Component {
   render = () => {
@@ -14,6 +13,9 @@ class UnconnectedHomepage extends Component {
           <Link className="link" to="/login">
             LOG IN
           </Link>
+          <Link className="link" to="/profile">
+            PROFILE
+          </Link>
           <Link className="link" to="/cart">
             CART
           </Link>
@@ -22,7 +24,6 @@ class UnconnectedHomepage extends Component {
         <Link className="link" to="/marketplace">
           MARKETPLACE
         </Link>
-        <div></div>
       </div>
     );
   };

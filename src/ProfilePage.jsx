@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import UploadItem from "./UploadItem.jsx";
+import { connect } from "react-redux";
 
 // import css
-class Profile extends Component {
+class UnconnectedProfile extends Component {
   componentDidMount = async () => {
     let response = await fetch("/all-items");
     let body = await response.text();
@@ -46,4 +47,5 @@ class Profile extends Component {
     );
   }
 }
+let Profile = connect()(UnconnectedProfile);
 export default Profile;

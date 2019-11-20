@@ -19,6 +19,9 @@ class UnconnectedItemDetails extends Component {
           <Link className="link" to="/marketplace">
             Back
           </Link>
+          <Link className="link" to="/cart">
+            Cart
+          </Link>
           <Link className="link" to="/">
             HOME
           </Link>

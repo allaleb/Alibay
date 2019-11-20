@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 class UnconnectedLogin extends Component {
   constructor(props) {
@@ -47,36 +47,41 @@ class UnconnectedLogin extends Component {
   };
 
   render = () => {
-    return (
-      <div>
-        <div className="navbar-page">
-          <div className="store-mini">
+    if (this.props.loggedIn === false) {
+      return (
+        <div>
+          <div className="navbar-page">
+            <div className="store-mini">
+              <Link className="link" to="/">
+                Jasallanda Sweet Market
+              </Link>
+            </div>
             <Link className="link" to="/">
-              Jasallanda Sweet Market
+              HOME
             </Link>
           </div>
-          <Link className="link" to="/">
-            HOME
-          </Link>
+          <h1 className="store-name">Login</h1>
+          <form className="form" onSubmit={this.handleSubmit}>
+            <div>Username</div>
+            <input type="text" onChange={this.handleUsernameChange} />
+            <div>Password</div>
+            <input type="text" onChange={this.handlePasswordChange} />
+            <input type="submit" value="Login" />
+          </form>
+          <form className="form">
+            <Link className="link" to="/signup">
+              Create an account
+            </Link>
+          </form>
         </div>
-        <h1 className="store-name">Login</h1>
-        <form className="form" onSubmit={this.handleSubmit}>
-          <div>Username</div>
-          <input type="text" onChange={this.handleUsernameChange} />
-          <div>Password</div>
-          <input type="text" onChange={this.handlePasswordChange} />
-          <input type="submit" value="Login" />
-        </form>
-        <form className="form">
-          <Link className="link" to="/signup">
-            Create an account
-          </Link>
-        </form>
-      </div>
-    );
+      );
+    }
+    return <Redirect to="/marketplace" />;
   };
 }
-
-let Login = connect()(UnconnectedLogin);
+let mapStateToProps = state => {
+  return { loggedIn: state.loggedIn };
+};
+let Login = connect(mapStateToProps)(UnconnectedLogin);
 
 export default Login;

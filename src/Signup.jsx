@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 class UnconnectedSignup extends Component {
   constructor() {
     super();
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      signedUp: false
     };
   }
   usernameHandler = event => {
@@ -33,45 +34,49 @@ class UnconnectedSignup extends Component {
       alert("This username is already taken!");
       return;
     }
-    alert("Sign up Successful");
+    alert("Sign up Successful, Please login");
     this.props.dispatch({ type: "signup-success", loggedIn: true });
+    this.setState({ signedUp: true });
   };
   render = () => {
-    return (
-      <div>
-        <div className="navbar-page">
-          <div className="store-mini">
+    if (this.state.signedUp === false) {
+      return (
+        <div>
+          <div className="navbar-page">
+            <div className="store-mini">
+              <Link className="link" to="/">
+                Jasallanda Sweet Market
+              </Link>
+            </div>
             <Link className="link" to="/">
-              Jasallanda Sweet Market
+              HOME
             </Link>
           </div>
-          <Link className="link" to="/">
-            HOME
-          </Link>
+          <h1 className="store-name">Signup</h1>
+          <form className="form" onSubmit={this.submitHandler}>
+            Username
+            <input
+              type="text"
+              value={this.state.username}
+              onChange={this.usernameHandler}
+            ></input>
+            Password
+            <input
+              type="text"
+              value={this.state.password}
+              onChange={this.passwordHandler}
+            ></input>
+            <input type="submit" value="Sign up"></input>
+          </form>
+          <form className="form">
+            <Link className="link" to="/login">
+              If you already have an Account click here
+            </Link>
+          </form>
         </div>
-        <h1 className="store-name">Signup</h1>
-        <form className="form" onSubmit={this.submitHandler}>
-          Username
-          <input
-            type="text"
-            value={this.state.username}
-            onChange={this.usernameHandler}
-          ></input>
-          Password
-          <input
-            type="text"
-            value={this.state.password}
-            onChange={this.passwordHandler}
-          ></input>
-          <input type="submit" value="Sign up"></input>
-        </form>
-        <form className="form">
-          <Link className="link" to="/login">
-            If you already have an Account click here
-          </Link>
-        </form>
-      </div>
-    );
+      );
+    }
+    return <Redirect to="/login" />;
   };
 }
 let mapStateToProps = state => {
