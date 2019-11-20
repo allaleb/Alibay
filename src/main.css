@@ -127,3 +127,9 @@ input[type="file"] {
   background: #fff8cd;
   border-radius: 10px;
 }
+.topbar-search {
+  margin-right: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fcfcfc;
+  padding: 30px;
+}

@@ -66,20 +66,17 @@ class UnconnectedSearch extends Component {
       <div>
         <div>
           Search query
-          <input
-            type="text"
-            onChange={this.handleQuery}
-            value={this.props.query}
-          />
+          <div className="topbar-search">
+            <input
+              type="text"
+              onChange={this.handleQuery}
+              value={this.props.query}
+              placeholder="I'm looking for..."
+            />
+            <button onClick={this.handleClearForm}>Submit</button>
+          </div>
         </div>
-        <div>
-          Search by tags!
-          <input
-            type="text"
-            onChange={this.handleTags}
-            value={this.props.findTags}
-          />
-        </div>
+
         <div>
           <div>
             <button onClick={this.handleClearForm}>Clear Form</button>
