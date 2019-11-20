@@ -33,7 +33,7 @@ class UnconnectedSignup extends Component {
       alert("This username is already taken!");
       return;
     }
-
+    alert("Sign up Successful");
     this.props.dispatch({ type: "signup-success", loggedIn: true });
   };
   render = () => {

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import UploadItem from "./UploadItem.jsx";
+
 // import css
 class Profile extends Component {
   componentDidMount = async () => {
@@ -20,6 +22,9 @@ class Profile extends Component {
         </div>
         <div>{"This profile page Belongs to: " + this.props.profile.name}</div>
         <div>{"About Me: " + this.props.profile.aboutMe}</div>
+        <div>
+          <UploadItem />
+        </div>
         <div>
           {this.props.items.map(item => {
             <div>

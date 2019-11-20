@@ -22,9 +22,7 @@ class UnconnectedHomepage extends Component {
         <Link className="link" to="/marketplace">
           MARKETPLACE
         </Link>
-        <div>
-          <UploadItem />
-        </div>
+        <div></div>
       </div>
     );
   };
