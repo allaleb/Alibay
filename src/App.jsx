@@ -30,6 +30,7 @@ class UnconnectedApp extends Component {
             <Route exact={true} path="/cart" component={Cart} />
             <Route exact={true} path="/marketplace" component={Marketplace} />
             <Route exact={true} path="/profile" component={Profile} />
+            <Route exact={true} path="/search" component={Search} />
             <Route
               exact={true}
               path="/itemdetails/:itemId"

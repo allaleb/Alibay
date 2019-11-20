@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import DisplayItem from "./DisplayItem.jsx";
+import Search from "./Search.jsx";
 
 class UnconnectedMarketplace extends Component {
   componentDidMount = async () => {
@@ -34,6 +35,7 @@ class UnconnectedMarketplace extends Component {
             HOME
           </Link>
         </div>
+        <Search />
         <div className="marketplace">
           {this.props.items.map(item => {
             return <DisplayItem item={item} />;
