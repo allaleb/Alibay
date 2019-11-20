@@ -8,7 +8,7 @@ class UnconnectedMarketplace extends Component {
     let response = await fetch("/all-items");
     let items = await response.text();
     items = JSON.parse(items);
-    console.log("items", items);
+    console.log(this);
     this.props.dispatch({ type: "set-items", items: items });
   };
   logOutHandler = () => {
@@ -29,6 +29,7 @@ class UnconnectedMarketplace extends Component {
           <Link className="link" to="/" onClick={this.logOutHandler}>
             Log Out
           </Link>
+          <Link to={"/profile/" + this.props.username}>Profile</Link>
           <Link className="link" to="/">
             HOME
           </Link>
@@ -44,7 +45,7 @@ class UnconnectedMarketplace extends Component {
 }
 
 let mapStateToProps = state => {
-  return { items: state.items };
+  return { items: state.items, username: state.username };
 };
 
 let Marketplace = connect(mapStateToProps)(UnconnectedMarketplace);

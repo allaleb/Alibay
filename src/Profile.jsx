@@ -31,12 +31,12 @@ class UnconnectedProfile extends Component {
             HOME
           </Link>
         </div>
-        <div>{"This profile page Belongs to: " + this.props.profile.name}</div>
-        <div>{"About Me: " + this.props.profile.aboutMe}</div>
+        {/* <div>{"This profile page Belongs to: " + this.props.profile.name}</div>
+        <div>{"About Me: " + this.props.profile.aboutMe}</div> */}
         <div>
           <UploadItem />
         </div>
-        <div>
+        {/* <div>
           {this.props.items.map(item => {
             <div>
               <div>hello world</div>
@@ -48,7 +48,7 @@ class UnconnectedProfile extends Component {
               </Link>
             </div>;
           })}
-        </div>
+        </div> */}
       </div>
     );
   }
