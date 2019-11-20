@@ -42,7 +42,7 @@ app.get("/all-items", upload.none(), (req, res) => {
 //in reviews, they will need to have a reviewID that matches the ObjectId of items
 //
 
-app.get("/item-reviews");
+//app.get("/item-reviews");
 
 //this endpoint retrieves reviews of a particular item from the database
 //(to send to the frontend to be displayed)
