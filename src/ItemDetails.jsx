@@ -26,7 +26,7 @@ class UnconnectedItemDetails extends Component {
         <div>
           <h3>{item.name}</h3>
           <h3>{item.seller}</h3>
-          <img src={item.frontendPath} />
+          <img src={item.frontendPath} height="200px" />
           <h3>{item.description}</h3>
           <h3>{item.price}</h3>
           <h3>{item.reviews}</h3>
