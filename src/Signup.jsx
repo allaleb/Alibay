@@ -61,6 +61,11 @@ class UnconnectedSignup extends Component {
           ></input>
           <input type="submit" value="Sign up"></input>
         </form>
+        <form className="form">
+          <Link className="link" to="/login">
+            If you already have an Account click here
+          </Link>
+        </form>
       </div>
     );
   };
