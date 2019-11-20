@@ -53,5 +53,8 @@ class UnconnectedProfile extends Component {
     );
   }
 }
-let Profile = connect()(UnconnectedProfile);
+let mapStateToProps = state => {
+  return { username: state.username, state };
+};
+let Profile = connect(mapStateToProps)(UnconnectedProfile);
 export default Profile;

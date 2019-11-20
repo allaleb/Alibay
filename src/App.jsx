@@ -8,7 +8,7 @@ import UploadItem from "./UploadItem.jsx";
 import Cart from "./Cart.jsx";
 import Marketplace from "./Marketplace.jsx";
 import ItemDetails from "./ItemDetails.jsx";
-import Profile from "./ProfilePage.jsx";
+import Profile from "./Profile.jsx";
 import Search from "./Search.jsx";
 
 class UnconnectedApp extends Component {
@@ -35,6 +35,13 @@ class UnconnectedApp extends Component {
               path="/itemdetails/:itemId"
               render={routerData => (
                 <ItemDetails itemId={routerData.match.params.itemId} />
+              )}
+            />
+            <Route
+              exact={true}
+              path="/profile/:username"
+              render={routerData => (
+                <Profile username={routerData.match.params.username} />
               )}
             />
             <div></div>
