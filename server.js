@@ -24,27 +24,27 @@ app.get("/all-items", upload.none(), (req, res) => {
       if (error) {
         console.log("error", error);
         res.send(JSON.stringify({ success: false }));
-        return
+        return;
       }
       res.send(JSON.stringify(item));
     });
 });
 
-app.post("/upload-review", upload.none(), (req, res) => {
-console.log("request to upload review")
-let reviewer = req.body.reviewer
-let review = req.body.review
-let item = req.body.item
-let itemId = req.body.itemId
+//app.post("/upload-review", upload.none(), (req, res) => {
+//console.log("request to upload review")
+//let reviewer = req.body.reviewer
+//let review = req.body.review
+//let item = req.body.item
+//let itemId = req.body.itemId
 
 //this endpoint sends reviews to the database
 //need to make new reviews collection... both items and reviews object need to share a common id,
 //in reviews, they will need to have a reviewID that matches the ObjectId of items
 //
 
-app.get("/item-reviews")
+app.get("/item-reviews");
 
-//this endpoint retrieves reviews of a particular item from the database 
+//this endpoint retrieves reviews of a particular item from the database
 //(to send to the frontend to be displayed)
 
 app.post("/upload-item", upload.single("img"), (req, res) => {
@@ -73,11 +73,11 @@ app.post("/signup", upload.none(), (req, res) => {
     if (error) {
       console.log("/signup error", error);
       res.send(JSON.stringify({ success: false, error }));
-      return
+      return;
     }
     if (user !== null) {
       res.send(JSON.stringify({ success: false }));
-      return
+      return;
     }
     if (user === null) {
       dbo
@@ -104,16 +104,16 @@ app.post("/login", upload.none(), (req, res) => {
     if (error) {
       console.log("/login error", error);
       res.send(JSON.stringify({ success: false, error }));
-      return
+      return;
     }
     if (user === null) {
       res.send(JSON.stringify({ success: false }));
-      return
-      }
+      return;
+    }
     if (user.password === password) {
       res.send(JSON.stringify({ success: true }));
-      }
-      res.send(JSON.stringify({ success: false }));
+    }
+    //res.send(JSON.stringify({ success: false }));
   });
 });
 
@@ -125,6 +125,5 @@ app.all("/*", (req, res, next) => {
 app.listen(4000, "0.0.0.0", () => {
   console.log("Server running on port 4000");
 });
-
 
 //
