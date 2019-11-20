@@ -11,7 +11,9 @@ class UnconnectedMarketplace extends Component {
     console.log("items", items);
     this.props.dispatch({ type: "set-items", items: items });
   };
-
+  logOutHandler = () => {
+    this.props.dispatch({ type: "log-out" });
+  };
   render() {
     return (
       <div>
@@ -20,7 +22,13 @@ class UnconnectedMarketplace extends Component {
             <Link className="link" to="/">
               Jasallanda Sweet Market
             </Link>
-          </div>{" "}
+          </div>
+          <Link className="link" to="/cart">
+            CART
+          </Link>
+          <Link className="link" to="/" onClick={this.logOutHandler}>
+            Log Out
+          </Link>
           <Link className="link" to="/">
             HOME
           </Link>

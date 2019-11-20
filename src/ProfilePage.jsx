@@ -12,6 +12,9 @@ class UnconnectedProfile extends Component {
     console.log("body", body);
     this.setState({ items: body });
   };
+  logOutHandler = () => {
+    this.props.dispatch({ type: "log-out" });
+  };
   render() {
     return (
       <div>
@@ -21,6 +24,9 @@ class UnconnectedProfile extends Component {
               Jasallanda Sweet Market
             </Link>
           </div>
+          <Link className="link" to="/logout">
+            <button onClick={this.logOutHandler}>Log Out</button>
+          </Link>
           <Link className="link" to="/">
             HOME
           </Link>
