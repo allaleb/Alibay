@@ -51,6 +51,9 @@ body {
   align-items: center;
   background-color: #fdd8d8;
   border-radius: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
 }
 
 .navbar-home {
