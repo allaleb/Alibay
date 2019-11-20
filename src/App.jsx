@@ -8,6 +8,7 @@ import UploadItem from "./UploadItem.jsx";
 import Cart from "./Cart.jsx";
 import Marketplace from "./Marketplace.jsx";
 import ItemDetails from "./ItemDetails.jsx";
+import Profile from "./ProfilePage.jsx";
 
 class UnconnectedApp extends Component {
   render = () => {
