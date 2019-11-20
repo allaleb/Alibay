@@ -40,6 +40,7 @@ class UnconnectedLogin extends Component {
       alert("Login failed! Try again!");
       return;
     }
+    alert("Login successful!");
     this.props.dispatch({
       type: "login-success"
     });
