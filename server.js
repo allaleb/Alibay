@@ -15,70 +15,6 @@ MongoClient.connect(url, { useNewUrlParser: true }, (err, db) => {
   dbo = db.db("alibayDB");
 });
 
-app.get("/all-items", upload.none(), (req, res) => {
-  console.log("/all-items endpoint hit");
-  dbo
-    .collection("items")
-    .find({})
-    .toArray((error, item) => {
-      if (error) {
-        console.log("error", error);
-        res.send(JSON.stringify({ success: false }));
-        return;
-      }
-      res.send(JSON.stringify(item));
-    });
-});
-
-app.post("/upload-review", upload.none(), (req, res) => {
-  console.log("request to /upload-review");
-  let reviewer = req.body.reviewer;
-  let review = req.body.review;
-  let itemId = req.body.itemId;
-  dbo.collection("reviews").insertOne({
-    reviewId: itemId,
-    reviewer: reviewer,
-    review: review
-  });
-  res.send(JSON.stringify({ success: true }));
-});
-
-app.get("/item-reviews"),
-  upload.none(),
-  (req, res) => {
-    console.log("request to get /item-reviews");
-    let itemId = req.body.itemId;
-    dbo
-      .collection("reviews")
-      .find({ reviewId: itemId })
-      .toArray((error, item) => {
-        if (error) {
-          console.log("error", error);
-          res.send(JSON.stringify({ success: false }));
-          return;
-        }
-        res.send(JSON.stringify(reviews));
-      });
-  };
-
-app.post("/upload-item", upload.single("img"), (req, res) => {
-  console.log("request to upload new item");
-  let description = req.body.description;
-  let seller = req.body.seller;
-  let price = req.body.price;
-  let name = req.body.name;
-  let file = req.file;
-  let frontendPath = "/uploads/" + file.filename;
-  dbo.collection("items").insertOne({
-    description: description,
-    frontendPath: frontendPath,
-    price: price,
-    name: name,
-    seller: seller
-  });
-  res.send(JSON.stringify({ success: true }));
-});
-
 app.post("/signup", upload.none(), (req, res) => {
   console.log("signup endpoint hit");
   let username = req.body.username;
@@ -127,9 +63,114 @@ app.post("/login", upload.none(), (req, res) => {
     if (user.password === password) {
       res.send(JSON.stringify({ success: true }));
     }
-    //res.send(JSON.stringify({ success: false }));
   });
 });
+
+app.post("/upload-review", upload.none(), (req, res) => {
+  console.log("request to /upload-review");
+  let reviewer = req.body.reviewer;
+  let review = req.body.review;
+  let itemId = req.body.itemId;
+  dbo.collection("reviews").insertOne({
+    reviewId: itemId,
+    reviewer: reviewer,
+    review: review
+  });
+  res.send(JSON.stringify({ success: true }));
+});
+
+app.post("/upload-item", upload.single("img"), (req, res) => {
+  console.log("request to upload new item");
+  let description = req.body.description;
+  let seller = req.body.seller;
+  let price = req.body.price;
+  let name = req.body.name;
+  let file = req.file;
+  let frontendPath = "/uploads/" + file.filename;
+  dbo.collection("items").insertOne({
+    description: description,
+    frontendPath: frontendPath,
+    price: price,
+    name: name,
+    seller: seller
+  });
+  res.send(JSON.stringify({ success: true }));
+});
+
+app.get("/item-reviews"),
+  upload.none(),
+  (req, res) => {
+    console.log("request to get /item-reviews");
+    let itemId = req.body.itemId;
+    dbo
+      .collection("reviews")
+      .find({ reviewId: itemId })
+      .toArray((error, reviews) => {
+        if (error) {
+          console.log("error", error);
+          res.send(JSON.stringify({ success: false }));
+          return;
+        }
+        res.send(JSON.stringify(reviews));
+      });
+  };
+
+app.get("/user-reviews"),
+  upload.none(),
+  (req, res) => {
+    console.log("request to get /user-reviews");
+    let reviewer = req.body.reviewer;
+    dbo
+      .collection("reviews")
+      .find({ reviewer: reviewer })
+      .toArray((error, reviews) => {
+        if (error) {
+          console.log("error", error);
+          res.send(JSON.stringify({ success: false }));
+          return;
+        }
+        res.send(JSON.stringify(reviews));
+      });
+  };
+
+app.get("/all-items", upload.none(), (req, res) => {
+  console.log("/all-items endpoint hit");
+  dbo
+    .collection("items")
+    .find({})
+    .toArray((error, item) => {
+      if (error) {
+        console.log("error", error);
+        res.send(JSON.stringify({ success: false }));
+        return;
+      }
+      res.send(JSON.stringify(item));
+    });
+});
+
+app.get("/search", upload.none(), (req, res) => {
+  console.log("request to /search endpoint");
+  let searchTerm = req.body.searchTerm;
+  dbo
+    .collection("items")
+    .find({
+      $or: [
+        { description: { $regex: new RegExp(searchTerm, "i") } },
+        { name: { $regex: new RegExp(searchTerm, "i") } }
+      ]
+    })
+    .toArray((error, item) => {
+      if (error) {
+        console.log("error", error);
+        res.send(JSON.stringify({ success: false }));
+        return;
+      }
+      res.send(JSON.stringify(item));
+    });
+});
+
+//this endpoint will retrieve items based on the search criteria
+//sent from the frontend
 
 app.all("/*", (req, res, next) => {
   // needed for react router

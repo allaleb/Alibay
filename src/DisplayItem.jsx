@@ -6,9 +6,7 @@ class DisplayItem extends Component {
     return (
       <div>
         <Link to={"/itemdetails/" + this.props.item._id}>
-          <div object-fit="fill">
-            <img src={this.props.item.frontendPath} width="200px" />
-          </div>
+          <img src={this.props.item.frontendPath} width="200px" />
         </Link>
         <div>{this.props.item.name}</div>
         <div>{this.props.item.price}</div>
@@ -17,5 +15,3 @@ class DisplayItem extends Component {
   }
 }
 export default DisplayItem;
-
-// <div>{this.props.item.seller}</div>
