@@ -2,11 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import UploadItem from "./UploadItem.jsx";
-import ItemReviews from "./ItemReviews.jsx";
 
 class UnconnectedItemDetails extends Component {
-  handleAdd = event => {
-    this.props.dispatch({ type: "add-success" });
+  handleAdd = item => {
+    this.props.dispatch({ type: "add-success", item: item });
   };
 
   render = () => {
@@ -27,8 +26,14 @@ class UnconnectedItemDetails extends Component {
           <img src={item.frontendPath} />
           <h3>{item.description}</h3>
           <h3>{item.price}</h3>
-          <ItemReviews item={item} />
-          <button onClick={this.handleAdd}>Add to cart</button>
+          <h3>{item.reviews}</h3>
+          <button
+            onClick={() => {
+              this.handleAdd(item);
+            }}
+          >
+            Add to cart
+          </button>
         </div>
       </div>
     );

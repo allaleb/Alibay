@@ -24,7 +24,7 @@ let reducer = (state, action) => {
   }
 
   if (action.type === "add-success") {
-    return { ...state, items: action.items };
+    return { ...state, cart: state.cart.concat(action.item) };
   }
 
   return state;
