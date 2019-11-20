@@ -9,6 +9,7 @@ import Cart from "./Cart.jsx";
 import Marketplace from "./Marketplace.jsx";
 import ItemDetails from "./ItemDetails.jsx";
 import Profile from "./ProfilePage.jsx";
+import Search from "./Search.jsx";
 
 class UnconnectedApp extends Component {
   render = () => {
