@@ -86,3 +86,10 @@ input[type="file"] {
   font-family: "Roboto", sans-serif;
   margin: 50px;
 }
+
+.itemsInCart {
+  display: grid;
+  justify-content: space-between;
+  font-family: "Roboto", sans-serif;
+  color: black;
+}
