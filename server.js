@@ -8,6 +8,7 @@ let upload = multer({ dest: __dirname + "/uploads/" });
 reloadMagic(app);
 app.use("/", express.static("build"));
 app.use("/uploads", express.static("uploads"));
+app.use("/public", express.static("public"));
 let dbo = undefined;
 let url =
   "mongodb+srv://bob:bobsue@clusteramanda-kqoqy.mongodb.net/test?retryWrites=true&w=majority";

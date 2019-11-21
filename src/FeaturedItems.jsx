@@ -8,7 +8,7 @@ class UnconnectedFeaturedItem extends Component {
       return (
         <div className="feature-item">
           <Link to={"/login"}>
-            <img src={this.props.item.frontendPath} width="200px" />
+            <img src={this.props.item.thumbnailPath} />
           </Link>
           <div className="feature-name">{this.props.item.name}</div>
           <div className="feature-price">{this.props.item.price}</div>

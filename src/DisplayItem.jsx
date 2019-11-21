@@ -6,7 +6,7 @@ class DisplayItem extends Component {
     return (
       <div>
         <Link to={"/itemdetails/" + this.props.item._id}>
-          <img src={this.props.item.frontendPath} width="200px" />
+          <img src={this.props.item.thumbnailPath} />
         </Link>
         <div>{this.props.item.name}</div>
         <div>{this.props.item.price}</div>
