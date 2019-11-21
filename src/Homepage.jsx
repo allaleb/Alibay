@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import FeaturedItem from "./FeaturedItems.jsx";
 
 class UnconnectedHomepage extends Component {
   constructor() {
@@ -16,6 +17,13 @@ class UnconnectedHomepage extends Component {
     items = JSON.parse(items);
     console.log("items", items);
     this.props.dispatch({ type: "set-items", items: items });
+    let featuredItems = [];
+    for (let i = 0; i < 3; i++) {
+      let index = Math.floor(Math.random() * Math.floor(items.length));
+      featuredItems.push(items[index]);
+    }
+    console.log("featuredItems", featuredItems);
+    this.setState({ featured: featuredItems });
   };
 
   render = () => {
@@ -41,11 +49,12 @@ class UnconnectedHomepage extends Component {
             LOG IN
           </Link>
         </div>
-        {/* <div className="feature">
-           {this.props.items.map(item => {
-           return <FeaturedItem item={item} />;
-         })}
-        </div> */}
+        <div className="feature-title">Featured Items</div>
+        <div className="feature">
+          {this.state.featured.map(item => {
+            return <FeaturedItem item={item} />;
+          })}
+        </div>
       </div>
     );
   };
