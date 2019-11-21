@@ -38,14 +38,13 @@ class UnconnectedSearch extends Component {
   render = () => {
     return (
       <div className="container">
-        <h2 className="heading">Search items</h2>
         <label className="search-label" htmlFor="search-input">
           <input
             type="text"
             name="query"
             value={this.state.query}
             id="search-input"
-            placeholder="Search"
+            placeholder="Search..."
             onChange={this.handleOnInputChange}
           />
           <div>

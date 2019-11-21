@@ -20,23 +20,22 @@ class UnconnectedMarketplace extends Component {
       <div>
         <div className="navbar-page">
           <div className="store-mini">
-            <Link className="link" to="/">
+            <Link className="link-store" to="/">
               Jasallanda Sweet Market
             </Link>
           </div>
+          <Link className="link" to={"/myprofile"}>
+            MY PROFILE
+          </Link>
           <Link className="link" to="/cart">
             CART
           </Link>
           <Link className="link" to="/" onClick={this.logOutHandler}>
-            Log Out
-          </Link>
-          <Link className="link" to={"/myprofile"}>
-            My Profile
-          </Link>
-          <Link className="link" to="/">
-            HOME
+            LOG OUT
           </Link>
         </div>
+        <div className="marketplace-name">Welcome to the Sweet Market</div>
+        <div className="market-sub">Find something sweet to eat!</div>
         <Search />
         <div className="marketplace">
           {this.props.items.map(item => {

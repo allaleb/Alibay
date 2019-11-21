@@ -31,10 +31,20 @@ body {
 }
 
 .store-mini {
+  position: absolute;
   font-family: "Fredoka One", cursive;
   font-size: 23px;
-  margin: 8px;
   padding: 8px;
+  left: 2px;
+}
+
+.marketplace-name {
+  font-size: 60px;
+  font-family: "Fredoka One", cursive;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1px;
+  margin-top: 50px;
 }
 
 .link {
@@ -45,9 +55,17 @@ body {
   padding: 8px;
 }
 
+.link-store {
+  text-decoration: none;
+  color: black;
+  font-family: "Fredoka One", cursive;
+  font-size: 23px;
+  padding: 8px;
+}
+
 .navbar-page {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   background-color: #fdd8d8;
   border-radius: 10px;
@@ -192,4 +210,15 @@ input[type="file"] {
   color: #444;
   box-sizing: border-box;
   outline: none;
+  border-radius: 10px;
+  font-family: "Roboto", sans-serif;
+}
+
+.market-sub {
+  display: flex;
+  font-family: "Damion", cursive;
+  font-size: 30px;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
