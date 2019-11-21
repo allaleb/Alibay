@@ -222,3 +222,8 @@ input[type="file"] {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+.button-link {
+  text-decoration: none;
+  color: black;
+  cursor: default;
+}

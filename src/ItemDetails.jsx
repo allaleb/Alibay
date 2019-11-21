@@ -7,6 +7,9 @@ class UnconnectedItemDetails extends Component {
   handleAdd = item => {
     this.props.dispatch({ type: "add-success", item: item });
   };
+  buyOne = item => {
+    this.props.dispatch({ type: "add-success", item: item });
+  };
   logOutHandler = () => {
     this.props.dispatch({ type: "log-out" });
   };
@@ -47,12 +50,24 @@ class UnconnectedItemDetails extends Component {
             <h3>{item.description}</h3>
             <h3>{item.price}</h3>
             <h3>{item.reviews}</h3>
+            <h3>{item.intock}</h3>
             <button
               onClick={() => {
                 this.handleAdd(item);
               }}
             >
               Add to cart
+            </button>
+            <button>
+              <Link
+                to="/cart"
+                onClick={() => {
+                  this.buyOne(item);
+                }}
+                className="button-link"
+              >
+                Buy now
+              </Link>
             </button>
           </div>
         </div>
