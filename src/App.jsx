@@ -11,8 +11,19 @@ import ItemDetails from "./ItemDetails.jsx";
 import MyProfile from "./MyProfile.jsx";
 import Profile from "./Profile.jsx";
 import Search from "./Search.jsx";
+import StripeCheckout from "react-stripe-checkout";
 
 class UnconnectedApp extends Component {
+  onToken = token => {
+    fetch("/save-stripe-token", {
+      method: "POST",
+      body: JSON.stringify(token)
+    }).then(response => {
+      response.json().then(data => {
+        alert(`We are in business, ${data.email}`);
+      });
+    });
+  };
   render = () => {
     if (this.props.login) {
       return (
@@ -25,6 +36,10 @@ class UnconnectedApp extends Component {
       <BrowserRouter>
         <div>
           <div>
+            <StripeCheckout
+              token={this.onToken}
+              stripeKey="pk_test_K08abbV1y863TnLbrmXVXYUE00IsV4DQF2"
+            />
             <Route exact={true} path="/" component={Homepage} />
             <Route exact={true} path="/signup" component={Signup} />
             <Route exact={true} path="/login" component={Login} />
@@ -44,7 +59,7 @@ class UnconnectedApp extends Component {
               exact={true}
               path="/profile/:username"
               render={routerData => (
-                <Profile sellerUsername={routerData.match.params.username} />
+                <Profile username={routerData.match.params.username} />
               )}
             />
             <div></div>
