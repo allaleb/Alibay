@@ -8,6 +8,7 @@ import UploadItem from "./UploadItem.jsx";
 import Cart from "./Cart.jsx";
 import Marketplace from "./Marketplace.jsx";
 import ItemDetails from "./ItemDetails.jsx";
+import MyProfile from "./MyProfile.jsx";
 import Profile from "./Profile.jsx";
 import Search from "./Search.jsx";
 
@@ -30,6 +31,7 @@ class UnconnectedApp extends Component {
             <Route exact={true} path="/cart" component={Cart} />
             <Route exact={true} path="/marketplace" component={Marketplace} />
             <Route exact={true} path="/profile" component={Profile} />
+            <Route exact={true} path="/myprofile" component={MyProfile} />
             <Route exact={true} path="/search" component={Search} />
             <Route
               exact={true}

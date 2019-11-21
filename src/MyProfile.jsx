@@ -4,7 +4,7 @@ import UploadItem from "./UploadItem.jsx";
 import { connect } from "react-redux";
 
 // import css
-class UnconnectedProfile extends Component {
+class UnconnectedMyProfile extends Component {
   componentDidMount = async () => {
     let response = await fetch("/all-items");
     let body = await response.text();
@@ -27,12 +27,6 @@ class UnconnectedProfile extends Component {
           <Link className="link" to="/marketplace">
             Marketplace
           </Link>
-          <Link className="link" to="/cart">
-            CART
-          </Link>
-          <Link className="link" to="/myprofile">
-            My Profile
-          </Link>
           <Link className="link" to="/" onClick={this.logOutHandler}>
             Log Out
           </Link>
@@ -44,7 +38,9 @@ class UnconnectedProfile extends Component {
           {"This profile page Belongs to: " + this.props.state.username}
         </div>
         {/* <div>{"About Me: " + this.props.state.aboutMe}</div>  */}
-
+        <div>
+          <UploadItem />
+        </div>
         {/* <div>
           {this.props.items.map(item => {
             <div>
@@ -65,5 +61,5 @@ class UnconnectedProfile extends Component {
 let mapStateToProps = state => {
   return { username: state.username, state };
 };
-let Profile = connect(mapStateToProps)(UnconnectedProfile);
-export default Profile;
+let MyProfile = connect(mapStateToProps)(UnconnectedMyProfile);
+export default MyProfile;

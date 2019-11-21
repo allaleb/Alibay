@@ -23,6 +23,9 @@ class UnconnectedItemDetails extends Component {
             <Link className="link" to="/marketplace">
               Back
             </Link>
+            <Link className="link" to="/myprofile">
+              My Profile
+            </Link>
             <Link className="link" to="/cart">
               Cart
             </Link>
@@ -35,7 +38,11 @@ class UnconnectedItemDetails extends Component {
           </div>
           <div>
             <h3>{item.name}</h3>
-            <h3>{item.seller}</h3>
+            <h3>
+              <Link classname="link" to={"/profile/" + item.seller}>
+                {item.seller}
+              </Link>
+            </h3>
             <img src={item.frontendPath} height="200px" />
             <h3>{item.description}</h3>
             <h3>{item.price}</h3>

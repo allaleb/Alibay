@@ -32,23 +32,54 @@ class UnconnectedHomepage extends Component {
       }
     }
     console.log("featuredItems", featuredItems);
+    console.log(this);
     this.setState({ featured: featuredItems });
   };
 
+  logOutHandler = () => {
+    this.props.dispatch({ type: "log-out" });
+  };
+
   render = () => {
+    if (this.props.loggedIn === true)
+      return (
+        <div>
+          <div className="navbar-home">
+            <Link className="link" to="/" onClick={this.logOutHandler}>
+              Log Out
+            </Link>
+            <Link className="link" to="/myprofile">
+              My Profile
+            </Link>
+            <Link classname="link" to="/" onClick={this.logoutHandler} />
+            <Link className="link" to="/cart">
+              CART
+            </Link>
+          </div>
+          <h1 className="store-name">Jasallanda Sweet Market</h1>
+          <div className="market-wrapper">
+            <Link className="market-link" to="/marketplace">
+              MARKETPLACE
+            </Link>
+          </div>
+          <div className="feature-title">Featured Items</div>
+          <div className="feature">
+            {this.state.featured.map(item => {
+              return <FeaturedItem item={item} />;
+            })}
+          </div>
+        </div>
+      );
     return (
       <div>
-        <div className="navbar-home">
-          <Link className="link" to="/profile">
-            PROFILE
-          </Link>
-          <Link className="link" to="/cart">
-            CART
-          </Link>
-        </div>
+        <div className="navbar-home"></div>
         <h1 className="store-name">Jasallanda Sweet Market</h1>
         <div className="market-wrapper">
-          <Link className="market-link" to="/marketplace">
+          <Link
+            className="market-link"
+            onCLick={this.onClickHandler}
+            to="/login"
+          >
             MARKETPLACE
           </Link>
           <Link className="market-link" to="/signup">
@@ -68,9 +99,8 @@ class UnconnectedHomepage extends Component {
     );
   };
 }
-
 let mapStateToProps = state => {
-  return { items: state.items };
+  return { items: state.items, loggedIn: state.loggedIn };
 };
 
 let Homepage = connect(mapStateToProps)(UnconnectedHomepage);

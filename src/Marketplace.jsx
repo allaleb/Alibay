@@ -30,8 +30,8 @@ class UnconnectedMarketplace extends Component {
           <Link className="link" to="/" onClick={this.logOutHandler}>
             Log Out
           </Link>
-          <Link className="link" to={"/profile/" + this.props.username}>
-            Profile
+          <Link className="link" to={"/myprofile"}>
+            My Profile
           </Link>
           <Link className="link" to="/">
             HOME
