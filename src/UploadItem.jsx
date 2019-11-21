@@ -42,7 +42,7 @@ class UploadItem extends Component {
     data.append("seller", this.state.seller);
     data.append("img", this.state.file);
     let response = await fetch("/upload-item", { method: "POST", body: data });
-    let body = await response.json();
+    let body = await response.text();
     console.log("body", body);
   };
 

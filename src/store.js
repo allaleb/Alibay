@@ -4,7 +4,8 @@ let initialState = {
   loggedIn: false,
   items: [],
   cart: [],
-  username: ""
+  username: "",
+  query: ""
 };
 
 let reducer = (state, action) => {
@@ -26,6 +27,10 @@ let reducer = (state, action) => {
 
   if (action.type === "add-success") {
     return { ...state, cart: state.cart.concat(action.item) };
+  }
+
+  if (action.type === "search-bar") {
+    return { ...state, query: action.query };
   }
 
   return state;

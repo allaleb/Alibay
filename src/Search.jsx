@@ -1,105 +1,124 @@
 import { connect } from "react-redux";
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
+import SearchResults from "./SearchResults.jsx";
+
 class UnconnectedSearch extends Component {
-  handleQuery = event => {
-    this.props.dispatch({ type: "query", q: event.target.value });
-  };
-  handleMinimumPrice = event => {
-    let price = parseInt(event.target.value);
-    if (!isNaN(price)) {
-      this.props.dispatch({ type: "minimum-price", price: event.target.value });
-    }
-  };
-  handleMaximumPrice = event => {
-    let price = parseInt(event.target.value);
-    if (!isNaN(price)) {
-      this.props.dispatch({ type: "maximum-price", price: event.target.value });
-    }
-  };
-  handleInStock = event => {
-    this.props.dispatch({ type: "show-in-stock" });
+  constructor(props) {
+    super(props);
+    this.state = {
+      query: "",
+      results: {},
+      loading: false,
+      searchResults: []
+    };
+  }
+
+  // handleClearForm = event => {
+  //   this.props.dispatch({ type: "clear-form" });
+  // };
+
+  // submitHandler = event => {
+  //   event.preventDefault();
+  //   let data = new FormData();
+  //   // data.append("query", this.props.state.query);
+  //   fetch("/search", { method: "POST", body: data });
+  // };
+
+  // advancedSearchHTML = () => {
+  //   return (
+  //     <div>
+  //       <div>
+  //         Minimum price
+  //         <input
+  //           type="text"
+  //           onChange={this.handleMinimumPrice}
+  //           value={this.props.minPrice}
+  //         />
+  //       </div>
+  //       <div>
+  //         Maximum price
+  //         <input
+  //           type="text"
+  //           onChange={this.handleMaximumPrice}
+  //           value={this.props.maxPrice}
+  //         />
+  //       </div>
+  //       <div>
+  //         In Stock
+  //         <input
+  //           type="checkbox"
+  //           onChange={this.handleInStock}
+  //           checked={this.props.showInStock}
+  //         />
+  //       </div>
+  //     </div>
+  //   );
+  // };
+
+  handleOnInputChange = event => {
+    let query = event.target.value;
+    this.setState({ query: query });
   };
 
-  handleClearForm = event => {
-    this.props.dispatch({ type: "clear-form" });
-  };
-  handleToggleAdvancedSearch = event => {
-    this.props.dispatch({ type: "advanced-search" });
-  };
-  handleTags = event => {
-    this.props.dispatch({ type: "find-tags", content: event.target.value });
+  handleSubmit = async () => {
+    event.preventDefault();
+    let data = new FormData();
+    data.append("searchTerm", this.state.query);
+    fetch("/search", { method: "POST", body: data });
+    let response = await fetch("/search", { method: "POST", body: data });
+    let searchResults = await response.text();
+    searchResults = JSON.parse(searchResults);
+    this.setState({ searchResults: searchResults });
   };
 
-  advancedSearchHTML = () => {
-    return (
-      <div>
-        <div>
-          Minimum price
-          <input
-            type="text"
-            onChange={this.handleMinimumPrice}
-            value={this.props.minPrice}
-          />
-        </div>
-        <div>
-          Maximum price
-          <input
-            type="text"
-            onChange={this.handleMaximumPrice}
-            value={this.props.maxPrice}
-          />
-        </div>
-        <div>
-          In Stock
-          <input
-            type="checkbox"
-            onChange={this.handleInStock}
-            checked={this.props.showInStock}
-          />
-        </div>
-      </div>
-    );
-  };
+  // {this.props.items.map(item => {
+  //   return <DisplayItem item={item} />;
+
+  // var newArray = array.filter(function(item) {
+  //   return condition;
+  // });
+  // const result = words.filter(word => word.length > 6);
+
+  // componentDidMount = async () => {
+  //   let response = await fetch("/all-items");
+  //   let items = await response.text();
+  //   items = JSON.parse(items);
+  //   console.log(this);
+  //   this.props.dispatch({ type: "set-items", items: items });
+  // };
+  // logOutHandler = () => {
+  //   this.props.dispatch({ type: "log-out" });
+  // };
+
   render = () => {
     return (
-      <div>
-        <div>
-          Search query
-          <div className="topbar-search">
-            <input
-              type="text"
-              onChange={this.handleQuery}
-              value={this.props.query}
-              placeholder="I'm looking for..."
-            />
-            <button onClick={this.handleClearForm}>Submit</button>
-          </div>
-        </div>
-
-        <div>
+      <div className="container">
+        <h2 className="heading">Search items</h2>
+        <label className="search-label" htmlFor="search-input">
+          <input
+            type="text"
+            name="query"
+            value={this.state.query}
+            id="search-input"
+            placeholder="Search"
+            onChange={this.handleOnInputChange}
+          />
           <div>
-            <button onClick={this.handleClearForm}>Clear Form</button>
+            {this.state.searchResults.map(searchResult => {
+              return <SearchResults searchResult={searchResult} />;
+            })}
           </div>
-          <div>
-            <button onClick={this.handleToggleAdvancedSearch}>
-              Toggle Advanced Search
-            </button>
-          </div>
-          {this.props.advancedSearch ? this.advancedSearchHTML() : null}
-        </div>
+          <button onClick={this.handleSubmit}>Search</button>
+        </label>
       </div>
     );
   };
 }
+
 let mapStateToProps = state => {
   return {
-    query: state.searchQuery,
-    minPrice: state.min,
-    maxPrice: state.max,
-    showInStock: state.showInStock,
-    advancedSearch: state.advancedSearch,
-    findTags: state.tags
+    query: state.searchQuery
   };
 };
 let Search = connect(mapStateToProps)(UnconnectedSearch);

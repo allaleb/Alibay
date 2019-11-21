@@ -148,7 +148,7 @@ app.get("/all-items", upload.none(), (req, res) => {
     });
 });
 
-app.get("/search", upload.none(), (req, res) => {
+app.post("/search", upload.none(), (req, res) => {
   console.log("request to /search endpoint");
   let searchTerm = req.body.searchTerm;
   dbo
