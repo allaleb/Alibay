@@ -36,10 +36,7 @@ class UnconnectedApp extends Component {
       <BrowserRouter>
         <div>
           <div>
-            <StripeCheckout
-              token={this.onToken}
-              stripeKey="pk_test_K08abbV1y863TnLbrmXVXYUE00IsV4DQF2"
-            />
+           
             <Route exact={true} path="/" component={Homepage} />
             <Route exact={true} path="/signup" component={Signup} />
             <Route exact={true} path="/login" component={Login} />
