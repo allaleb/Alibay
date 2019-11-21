@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import StripeCheckout from "react-stripe-checkout";
 
 class UnconnectedCart extends Component {
   removeItemHandler = index => {
@@ -35,16 +36,22 @@ class UnconnectedCart extends Component {
           </Link>
         </div>
         <div>
+          <StripeCheckout
+            token={this.onToken}
+            stripeKey="pk_test_K08abbV1y863TnLbrmXVXYUE00IsV4DQF2"
+          />
           <ul>
             {this.props.cart.map((item, index) => {
               return (
-                <li className="itemsInCart">
-                  <img src={item.frontendPath} height="100px" />
-                  {item.name + " " + "$" + item.price}
-                  <button onClick={() => this.removeItemHandler(index)}>
-                    Remove item from cart
-                  </button>
-                </li>
+                <div>
+                  <li className="itemsInCart">
+                    <img src={item.frontendPath} height="100px" />
+                    {item.name + " " + "$" + item.price}
+                    <button onClick={() => this.removeItemHandler(index)}>
+                      Remove item from cart
+                    </button>
+                  </li>
+                </div>
               );
             })}
           </ul>
