@@ -71,7 +71,7 @@ class UnconnectedLogin extends Component {
           </form>
           <form className="form">
             <Link className="link" to="/signup">
-              Create an account
+              Not a member? Click here to create an account
             </Link>
           </form>
         </div>
