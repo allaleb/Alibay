@@ -97,7 +97,7 @@ app.post("/upload-item", upload.single("img"), (req, res) => {
   res.send(JSON.stringify({ success: true }));
 });
 
-app.get("/item-reviews"),
+app.post("/item-reviews"),
   upload.none(),
   (req, res) => {
     console.log("request to get /item-reviews");
@@ -115,7 +115,7 @@ app.get("/item-reviews"),
       });
   };
 
-app.get("/user-reviews"),
+app.post("/user-reviews"),
   upload.none(),
   (req, res) => {
     console.log("request to get /user-reviews");
