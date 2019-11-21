@@ -44,7 +44,7 @@ class UnconnectedApp extends Component {
               exact={true}
               path="/profile/:username"
               render={routerData => (
-                <Profile username={routerData.match.params.username} />
+                <Profile sellerUsername={routerData.match.params.username} />
               )}
             />
             <div></div>

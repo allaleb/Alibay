@@ -11,6 +11,7 @@ class UnconnectedProfile extends Component {
     body = JSON.parse(body);
     console.log("body", body);
     this.setState({ items: body });
+    console.log(this);
   };
   logOutHandler = () => {
     this.props.dispatch({ type: "log-out" });
@@ -41,7 +42,7 @@ class UnconnectedProfile extends Component {
           </Link>
         </div>
         <div>
-          {"This profile page Belongs to: " + this.props.state.username}
+          {"This profile page Belongs to: " + this.props.sellerUsername}
         </div>
         {/* <div>{"About Me: " + this.props.state.aboutMe}</div>  */}
 
