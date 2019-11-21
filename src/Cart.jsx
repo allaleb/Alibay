@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import StripeCheckout from "react-stripe-checkout";
+import "./main.css";
 
 class UnconnectedCart extends Component {
   removeItemHandler = index => {
@@ -35,8 +36,9 @@ class UnconnectedCart extends Component {
             Home
           </Link>
         </div>
-        <div>
+        <div classname="stripe-div">
           <StripeCheckout
+            className="stripe-el"
             token={this.onToken}
             stripeKey="pk_test_K08abbV1y863TnLbrmXVXYUE00IsV4DQF2"
           />

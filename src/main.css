@@ -227,3 +227,16 @@ input[type="file"] {
   color: black;
   cursor: default;
 }
+
+.stripe-el span {
+  display: flex !important;
+  justify-content: space-between !important;
+  background: pink !important;
+  border-radius: none !important;
+  text-align: center !important;
+  font-family: "Roboto", sans-serif !important;
+}
+
+.stripe-div {
+  display: flex;
+}
