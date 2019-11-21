@@ -17,10 +17,19 @@ class UnconnectedHomepage extends Component {
     items = JSON.parse(items);
     console.log("items", items);
     this.props.dispatch({ type: "set-items", items: items });
+    let chosenIndexes = [];
     let featuredItems = [];
     for (let i = 0; i < 3; i++) {
+      let added = false;
       let index = Math.floor(Math.random() * Math.floor(items.length));
-      featuredItems.push(items[index]);
+      if (!chosenIndexes.includes(index)) {
+        featuredItems.push(items[index]);
+        chosenIndexes.push(index);
+        added = true;
+      }
+      if (!added) {
+        i--;
+      }
     }
     console.log("featuredItems", featuredItems);
     this.setState({ featured: featuredItems });
