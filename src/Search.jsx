@@ -14,47 +14,10 @@ class UnconnectedSearch extends Component {
     };
   }
 
-  // handleClearForm = event => {
-  //   this.props.dispatch({ type: "clear-form" });
-  // };
-
-  // submitHandler = event => {
-  //   event.preventDefault();
-  //   let data = new FormData();
-  //   // data.append("query", this.props.state.query);
-  //   fetch("/search", { method: "POST", body: data });
-  // };
-
-  // advancedSearchHTML = () => {
-  //   return (
-  //     <div>
-  //       <div>
-  //         Minimum price
-  //         <input
-  //           type="text"
-  //           onChange={this.handleMinimumPrice}
-  //           value={this.props.minPrice}
-  //         />
-  //       </div>
-  //       <div>
-  //         Maximum price
-  //         <input
-  //           type="text"
-  //           onChange={this.handleMaximumPrice}
-  //           value={this.props.maxPrice}
-  //         />
-  //       </div>
-  //       <div>
-  //         In Stock
-  //         <input
-  //           type="checkbox"
-  //           onChange={this.handleInStock}
-  //           checked={this.props.showInStock}
-  //         />
-  //       </div>
-  //     </div>
-  //   );
-  // };
+  handleDelete = event => {
+    let query = event.target.value;
+    this.setState({ query: "" });
+  };
 
   handleOnInputChange = event => {
     let query = event.target.value;
@@ -71,25 +34,6 @@ class UnconnectedSearch extends Component {
     searchResults = JSON.parse(searchResults);
     this.setState({ searchResults: searchResults });
   };
-
-  // {this.props.items.map(item => {
-  //   return <DisplayItem item={item} />;
-
-  // var newArray = array.filter(function(item) {
-  //   return condition;
-  // });
-  // const result = words.filter(word => word.length > 6);
-
-  // componentDidMount = async () => {
-  //   let response = await fetch("/all-items");
-  //   let items = await response.text();
-  //   items = JSON.parse(items);
-  //   console.log(this);
-  //   this.props.dispatch({ type: "set-items", items: items });
-  // };
-  // logOutHandler = () => {
-  //   this.props.dispatch({ type: "log-out" });
-  // };
 
   render = () => {
     return (
@@ -110,6 +54,7 @@ class UnconnectedSearch extends Component {
             })}
           </div>
           <button onClick={this.handleSubmit}>Search</button>
+          <button onClick={this.handleDelete}>Delete</button>
         </label>
       </div>
     );

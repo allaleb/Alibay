@@ -174,9 +174,10 @@ input[type="file"] {
 
 .heading {
   font-size: 30px;
-  padding: 60px;
-  color: #444;
+  padding: 20px;
+  color: black;
   text-align: center;
+  font-family: "Roboto", sans-serif;
 }
 
 .search-label {
@@ -184,9 +185,9 @@ input[type="file"] {
 }
 
 .container input {
-  width: 100%;
-  padding: 16px;
-  font-size: 36px;
+  width: 90%;
+  padding: 10px;
+  font-size: 20px;
   font-style: italic;
   color: #444;
   box-sizing: border-box;
