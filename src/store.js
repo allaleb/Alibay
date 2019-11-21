@@ -24,6 +24,9 @@ let reducer = (state, action) => {
   if (action.type === "log-out") {
     return { ...state, loggedIn: false };
   }
+  if (action.type === "remove-item") {
+    return { ...state, cart: action.cart };
+  }
 
   if (action.type === "add-success") {
     return { ...state, cart: state.cart.concat(action.item) };

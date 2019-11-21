@@ -3,6 +3,15 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 class UnconnectedCart extends Component {
+  removeItemHandler = index => {
+    let copy = this.props.cart.slice();
+    copy.splice(index, 1);
+    console.log(copy);
+    this.props.dispatch({
+      type: "remove-item",
+      cart: copy
+    });
+  };
   render = () => {
     return (
       <div>
@@ -27,11 +36,14 @@ class UnconnectedCart extends Component {
         </div>
         <div>
           <ul>
-            {this.props.cart.map(item => {
+            {this.props.cart.map((item, index) => {
               return (
                 <li className="itemsInCart">
                   <img src={item.frontendPath} height="100px" />
                   {item.name + " " + "$" + item.price}
+                  <button onClick={() => this.removeItemHandler(index)}>
+                    Remove item from cart
+                  </button>
                 </li>
               );
             })}
