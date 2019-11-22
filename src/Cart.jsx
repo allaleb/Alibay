@@ -13,11 +13,13 @@ class UnconnectedCart extends Component {
       type: "remove-item",
       cart: copy
     });
-
-    // if (this.props.cart.length === 0) {
-    //   this.props.setState({ message: "xx" });
-    // }
   };
+  isCartEmpty = () => {
+    if (this.props.cart.length === 0) {
+      return <div>Your cart is empty</div>;
+    }
+  };
+
   render = () => {
     return (
       <div>
@@ -38,11 +40,7 @@ class UnconnectedCart extends Component {
           </Link>
         </div>
         <div classname="stripe-div">
-          <StripeCheckout
-            className="stripe-el"
-            token={this.onToken}
-            stripeKey="pk_test_K08abbV1y863TnLbrmXVXYUE00IsV4DQF2"
-          />
+          {this.isCartEmpty()}
           <ul>
             {this.props.cart.map((item, index) => {
               return (
@@ -58,6 +56,11 @@ class UnconnectedCart extends Component {
               );
             })}
           </ul>
+          <StripeCheckout
+            className="stripe-el"
+            token={this.onToken}
+            stripeKey="pk_test_K08abbV1y863TnLbrmXVXYUE00IsV4DQF2"
+          />
         </div>
       </div>
     );

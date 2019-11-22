@@ -52,8 +52,12 @@ class UnconnectedSearch extends Component {
               return <SearchResults searchResult={searchResult} />;
             })}
           </div>
-          <button onClick={this.handleSubmit}>Search</button>
-          <button onClick={this.handleDelete}>Delete</button>
+          <button className="buttonSearch" onClick={this.handleSubmit}>
+            Search
+          </button>
+          <button className="buttonDelete" onClick={this.handleDelete}>
+            Delete
+          </button>
         </label>
       </div>
     );
