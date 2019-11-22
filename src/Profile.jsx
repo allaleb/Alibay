@@ -41,11 +41,8 @@ class UnconnectedProfile extends Component {
             Home
           </Link>
         </div>
-        <div>
-          {"This profile page Belongs to: " + this.props.sellerUsername}
-        </div>
+        <h3>{"This profile page Belongs to: " + this.props.sellerUsername}</h3>
         {/* <div>{"About Me: " + this.props.state.aboutMe}</div>  */}
-
         {/* <div>
           {this.props.items.map(item => {
             <div>

@@ -11,6 +11,10 @@ class UnconnectedMyProfile extends Component {
     body = JSON.parse(body);
     console.log("body", body);
     this.setState({ items: body });
+    console.log(items, "items");
+    let filteredItems = items.filter(i => {
+      return i;
+    });
   };
   logOutHandler = () => {
     this.props.dispatch({ type: "log-out" });
@@ -34,11 +38,10 @@ class UnconnectedMyProfile extends Component {
             Home
           </Link>
         </div>
-        <div>
-          {"This profile page Belongs to: " + this.props.state.username}
-        </div>
+        <h3>{"This profile page Belongs to: " + this.props.state.username}</h3>
         {/* <div>{"About Me: " + this.props.state.aboutMe}</div>  */}
         <div>
+          <h4>Upload own items</h4>
           <UploadItem />
         </div>
         {/* <div>
