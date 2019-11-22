@@ -59,13 +59,7 @@ class UnconnectedCart extends Component {
             LOG OUT
           </Link>
         </div>
-        <div className="stripe-div">
-          <StripeCheckout
-            className="stripe-el"
-            token={this.onToken}
-            stripeKey="pk_test_K08abbV1y863TnLbrmXVXYUE00IsV4DQF2"
-          />
-        </div>
+        <div></div>
         <ul>
           {this.props.cart.map((item, index) => {
             return (
@@ -84,6 +78,13 @@ class UnconnectedCart extends Component {
         </ul>
         {this.isCartEmpty()}
         Your total will be: {this.state.totalPrice}$
+        <div>
+          <StripeCheckout
+            className="stripe-el"
+            token={this.onToken}
+            stripeKey="pk_test_K08abbV1y863TnLbrmXVXYUE00IsV4DQF2"
+          />
+        </div>
       </div>
     );
   };

@@ -239,6 +239,8 @@ input[type="file"] {
 
 .stripe-div {
   display: flex;
+  position: absolute;
+  top: 100px;
 }
 
 .buttonSearch {
