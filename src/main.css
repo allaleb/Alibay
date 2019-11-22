@@ -295,3 +295,8 @@ input[type="submit"] {
   margin-left: 5px;
   padding: 8px;
 }
+
+.search-bar {
+  display: flex;
+  margin: 10px;
+}
