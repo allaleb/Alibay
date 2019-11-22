@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import SearchResults from "./SearchResults.jsx";
+import DisplayItem from "./DisplayItem.jsx";
 
 class UnconnectedSearch extends Component {
   constructor(props) {
@@ -39,26 +40,27 @@ class UnconnectedSearch extends Component {
     return (
       <div className="container">
         <label className="search-label" htmlFor="search-input">
-          <div className="search">
-            <input
-              type="text"
-              name="query"
-              value={this.state.query}
-              id="search-input"
-              placeholder="Find something sweet to eat..."
-              onChange={this.handleOnInputChange}
-            />
-            <div>
-              {this.state.searchResults.map(searchResult => {
-                return <SearchResults searchResult={searchResult} />;
-              })}
+          <div className="">
+            <div className="search-bar">
+              <input
+                type="text"
+                name="query"
+                value={this.state.query}
+                id="search-input"
+                placeholder="Find something sweet to eat..."
+                onChange={this.handleOnInputChange}
+              />
+              <button className="buttonSearch" onClick={this.handleSubmit}>
+                SEARCH
+              </button>
+              <button className="buttonDelete" onClick={this.handleDelete}>
+                DELETE
+              </button>
             </div>
-            <button className="buttonSearch" onClick={this.handleSubmit}>
-              SEARCH
-            </button>
-            <button className="buttonDelete" onClick={this.handleDelete}>
-              DELETE
-            </button>
+            <div></div>
+            {this.state.searchResults.map(item => {
+              return <DisplayItem item={item} />;
+            })}
           </div>
         </label>
       </div>
