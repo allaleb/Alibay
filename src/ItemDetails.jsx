@@ -51,8 +51,7 @@ class UnconnectedItemDetails extends Component {
             <h3>{item.description}</h3>
             <h3>{item.price}</h3>
             <h3>{item.inStock}</h3>
-            <div>Review this item</div>
-            <ItemReviews item={item} />
+
             <button
               onClick={() => {
                 this.handleAdd(item);
@@ -71,6 +70,8 @@ class UnconnectedItemDetails extends Component {
                 Buy now
               </Link>
             </button>
+            <h4>Reviews for this item</h4>
+            <ItemReviews item={item} />
           </div>
         </div>
       );
