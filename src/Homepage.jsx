@@ -77,7 +77,7 @@ class UnconnectedHomepage extends Component {
         <div className="market-wrapper">
           <Link
             className="market-link"
-            onCLick={this.onClickHandler}
+            onClick={this.onClickHandler}
             to="/login"
           >
             MARKETPLACE

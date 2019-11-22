@@ -116,23 +116,20 @@ app.post("/item-reviews"),
       });
   };
 
-app.post("/user-reviews"),
-  upload.none(),
-  (req, res) => {
-    console.log("request to get /user-reviews");
-    let reviewer = req.body.reviewer;
-    dbo
-      .collection("reviews")
-      .find({ reviewer: reviewer })
-      .toArray((error, reviews) => {
-        if (error) {
-          console.log("error", error);
-          res.send(JSON.stringify({ success: false }));
-          return;
-        }
-        res.send(JSON.stringify(reviews));
-      });
-  };
+app.get("/all-reviews", (req, res) => {
+  console.log("request to get /all-reviews");
+  dbo
+    .collection("reviews")
+    .find({})
+    .toArray((error, reviews) => {
+      if (error) {
+        console.log("error", error);
+        res.send(JSON.stringify({ success: false }));
+        return;
+      }
+      res.send(JSON.stringify(reviews));
+    });
+});
 
 app.get("/all-items", upload.none(), (req, res) => {
   console.log("/all-items endpoint hit");
