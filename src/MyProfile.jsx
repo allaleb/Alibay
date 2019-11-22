@@ -19,9 +19,11 @@ class UnconnectedMyProfile extends Component {
     body = JSON.parse(body);
     console.log("body", body);
     this.setState({ items: body });
+    console.log(this.state.items);
     let filteredItem = this.state.items.filter(item => {
       return item.seller === this.props.username;
     });
+    console.log(filteredItem);
     this.setState({ filteredItem: filteredItem });
     let profileResponse = await fetch("/users");
     let profileBody = await profileResponse.text();

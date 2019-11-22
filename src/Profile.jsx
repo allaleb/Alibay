@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import UploadItem from "./UploadItem.jsx";
 import { connect } from "react-redux";
 
 // import css
 class UnconnectedProfile extends Component {
+  constructor() {
+    super();
+    this.state = {
+      items: []
+    };
+  }
   componentDidMount = async () => {
     let response = await fetch("/all-items");
     let body = await response.text();

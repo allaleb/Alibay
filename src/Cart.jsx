@@ -5,6 +5,15 @@ import StripeCheckout from "react-stripe-checkout";
 import "./main.css";
 
 class UnconnectedCart extends Component {
+  constructor() {
+    super();
+    this.state = {
+      totalPrice: 0
+    };
+  }
+  componentDidMount = () => {
+    this.priceHandler();
+  };
   removeItemHandler = index => {
     let copy = this.props.cart.slice();
     copy.splice(index, 1);
@@ -20,6 +29,17 @@ class UnconnectedCart extends Component {
     }
   };
 
+  priceHandler = () => {
+    let totalPrice = 0;
+    this.props.cart.forEach(item => {
+      console.log(item);
+      totalPrice = totalPrice + Number(item.price);
+    });
+    this.setState({ totalPrice: totalPrice });
+  };
+  logHandler = () => {
+    console.log(this);
+  };
   render = () => {
     return (
       <div>
@@ -39,29 +59,30 @@ class UnconnectedCart extends Component {
             LOG OUT
           </Link>
         </div>
-        <div classname="stripe-div">
-          {this.isCartEmpty()}
-          <ul>
-            {this.props.cart.map((item, index) => {
-              return (
-                <div>
-                  <li className="itemsInCart">
-                    <img src={item.frontendPath} height="100px" />
-                    {item.name + " " + "$" + item.price}
-                    <button onClick={() => this.removeItemHandler(index)}>
-                      Remove item from cart
-                    </button>
-                  </li>
-                </div>
-              );
-            })}
-          </ul>
+        <div className="stripe-div">
           <StripeCheckout
             className="stripe-el"
             token={this.onToken}
             stripeKey="pk_test_K08abbV1y863TnLbrmXVXYUE00IsV4DQF2"
           />
         </div>
+        <ul>
+          {this.props.cart.map((item, index) => {
+            return (
+              <div>
+                <li className="itemsInCart">
+                  <img src={item.frontendPath} height="100px" />
+                  {item.name + " " + "$" + item.price}
+
+                  <button onClick={() => this.removeItemHandler(index)}>
+                    Remove item from cart
+                  </button>
+                </li>
+              </div>
+            );
+          })}
+        </ul>
+        Your total will be: {this.state.totalPrice}$
       </div>
     );
   };
