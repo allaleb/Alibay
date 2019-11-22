@@ -5,16 +5,24 @@ import { connect } from "react-redux";
 
 // import css
 class UnconnectedMyProfile extends Component {
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     filteredItems: [],
+  //     items: []
+  //   };
+  // }
   componentDidMount = async () => {
-    let response = await fetch("/all-items");
-    let body = await response.text();
-    body = JSON.parse(body);
-    console.log("body", body);
-    this.setState({ items: body });
-    console.log(items, "items");
-    let filteredItems = items.filter(i => {
-      return i;
-    });
+    // let response = await fetch("/all-items");
+    // let body = await response.text();
+    // body = JSON.parse(body);
+    // console.log("body", body);
+    // this.setState({ items: body });
+    // console.log(items, "items");
+    // let filteredItems = items.filter(i => {
+    //   return i.seller === this.props.username;
+    // });
+    // this.setState({ filteredItems: filteredItems });
   };
   logOutHandler = () => {
     this.props.dispatch({ type: "log-out" });
