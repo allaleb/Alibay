@@ -44,7 +44,7 @@ class UnconnectedSearch extends Component {
             name="query"
             value={this.state.query}
             id="search-input"
-            placeholder="Search..."
+            placeholder="Find something sweet to eat..."
             onChange={this.handleOnInputChange}
           />
           <div>
@@ -52,12 +52,14 @@ class UnconnectedSearch extends Component {
               return <SearchResults searchResult={searchResult} />;
             })}
           </div>
-          <button className="buttonSearch" onClick={this.handleSubmit}>
-            Search
-          </button>
-          <button className="buttonDelete" onClick={this.handleDelete}>
-            Delete
-          </button>
+          <div className="search">
+            <button className="buttonSearch" onClick={this.handleSubmit}>
+              SEARCH
+            </button>
+            <button className="buttonDelete" onClick={this.handleDelete}>
+              DELETE
+            </button>
+          </div>
         </label>
       </div>
     );

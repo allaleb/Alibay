@@ -35,7 +35,9 @@ class UnconnectedMarketplace extends Component {
           </Link>
         </div>
         <div className="marketplace-name">Welcome to the Sweet Market</div>
-        <div className="market-sub">Find something sweet to eat!</div>
+        <div className="market-sub">
+          Buy and sell cakes, pastries, and much more!
+        </div>
         <Search />
         <div className="marketplace">
           {this.props.items.map(item => {
