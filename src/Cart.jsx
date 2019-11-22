@@ -82,6 +82,7 @@ class UnconnectedCart extends Component {
             );
           })}
         </ul>
+        {this.isCartEmpty()}
         Your total will be: {this.state.totalPrice}$
       </div>
     );
