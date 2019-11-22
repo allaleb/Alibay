@@ -3,26 +3,34 @@ import { Link } from "react-router-dom";
 import UploadItem from "./UploadItem.jsx";
 import { connect } from "react-redux";
 
-// import css
 class UnconnectedMyProfile extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     filteredItems: [],
-  //     items: []
-  //   };
-  // }
+  constructor() {
+    super();
+    this.state = {
+      filteredItem: [],
+      items: [],
+      users: [],
+      filteredUser: []
+    };
+  }
   componentDidMount = async () => {
-    // let response = await fetch("/all-items");
-    // let body = await response.text();
-    // body = JSON.parse(body);
-    // console.log("body", body);
-    // this.setState({ items: body });
-    // console.log(items, "items");
-    // let filteredItems = items.filter(i => {
-    //   return i.seller === this.props.username;
-    // });
-    // this.setState({ filteredItems: filteredItems });
+    let response = await fetch("/all-items");
+    let body = await response.text();
+    body = JSON.parse(body);
+    console.log("body", body);
+    this.setState({ items: body });
+    let filteredItem = this.state.items.filter(item => {
+      return item.seller === this.props.username;
+    });
+    this.setState({ filteredItem: filteredItem });
+    let profileResponse = await fetch("/users");
+    let profileBody = await profileResponse.text();
+    profileBody = JSON.parse(profileBody);
+    this.setState({ users: profileBody });
+    let filteredUser = this.state.users.filter(user => {
+      return user.username === this.state.filteredItem.seller;
+    });
+    this.setState({ filteredUser: filteredUser });
   };
   logOutHandler = () => {
     this.props.dispatch({ type: "log-out" });
@@ -47,24 +55,23 @@ class UnconnectedMyProfile extends Component {
           </Link>
         </div>
         <h3>{"This profile page Belongs to: " + this.props.state.username}</h3>
-        {/* <div>{"About Me: " + this.props.state.aboutMe}</div>  */}
+        <div>{"About Me: " + this.state.filteredUser.bio}</div>
         <div>
           <h4>Upload own items</h4>
           <UploadItem />
         </div>
-        {/* <div>
-          {this.props.items.map(item => {
+        <div>
+          {this.state.filteredItem.map(item => {
             <div>
-              <div>hello world</div>
+              <Link to={"/item/" + item._id}>
+                <img src={item.thumbnailPath} height="100px" />
+              </Link>
               <div>{item.description}</div>
               <div>{item.price}</div>
               <div>{item.name}</div>
-              <Link to={"/item/" + item._id}>
-                <img src={item.frontendPath} height="100px" />
-              </Link>
             </div>;
           })}
-        </div> */}
+        </div>
       </div>
     );
   }
