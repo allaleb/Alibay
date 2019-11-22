@@ -74,7 +74,6 @@ class UnconnectedProfile extends Component {
           {this.state.filteredItems.map(item => {
             return (
               <div>
-                <div>hello world</div>
                 <div>{item.description}</div>
                 <div>{item.price}</div>
                 <div>{item.name}</div>

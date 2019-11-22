@@ -57,13 +57,7 @@ class UnconnectedSearch extends Component {
                 DELETE
               </button>
             </div>
-            <button className="buttonSearch" onClick={this.handleSubmit}>
-              SEARCH
-            </button>
-            <button className="buttonDelete" onClick={this.handleDelete}>
-              DELETE
-            </button>
-            <Link to="/marketplace">Test</Link>
+
             <div></div>
             {this.state.searchResults.map(item => {
               return <DisplayItem item={item} />;
