@@ -62,7 +62,7 @@ class UnconnectedSignup extends Component {
             ></input>
             Password
             <input
-              type="text"
+              type="password"
               value={this.state.password}
               onChange={this.passwordHandler}
             ></input>
