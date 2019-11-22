@@ -39,20 +39,20 @@ class UnconnectedSearch extends Component {
     return (
       <div className="container">
         <label className="search-label" htmlFor="search-input">
-          <input
-            type="text"
-            name="query"
-            value={this.state.query}
-            id="search-input"
-            placeholder="Find something sweet to eat..."
-            onChange={this.handleOnInputChange}
-          />
-          <div>
-            {this.state.searchResults.map(searchResult => {
-              return <SearchResults searchResult={searchResult} />;
-            })}
-          </div>
           <div className="search">
+            <input
+              type="text"
+              name="query"
+              value={this.state.query}
+              id="search-input"
+              placeholder="Find something sweet to eat..."
+              onChange={this.handleOnInputChange}
+            />
+            <div>
+              {this.state.searchResults.map(searchResult => {
+                return <SearchResults searchResult={searchResult} />;
+              })}
+            </div>
             <button className="buttonSearch" onClick={this.handleSubmit}>
               SEARCH
             </button>
