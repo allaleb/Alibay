@@ -257,6 +257,26 @@ input[type="file"] {
   border: none;
 }
 
+.button-buy {
+  background: #fa697c;
+  border-radius: 30px;
+  color: white;
+  padding: 15px;
+  border: none;
+  margin-left: -10px;
+  margin-right: -10px;
+  text-decoration: none;
+}
+
+.button-add {
+  background: #e13a9d;
+  border-radius: 30px;
+  color: white;
+  padding: 15px;
+  border: none;
+  margin-right: 5px;
+}
+
 .item-name {
   font-family: "Fredoka One", cursive;
 }

@@ -56,8 +56,9 @@ class UnconnectedItemDetails extends Component {
               onClick={() => {
                 this.handleAdd(item);
               }}
+              className="button-add"
             >
-              Add to cart
+              ADD TO CART
             </button>
             <button>
               <Link
@@ -65,9 +66,9 @@ class UnconnectedItemDetails extends Component {
                 onClick={() => {
                   this.buyOne(item);
                 }}
-                className="button-link"
+                className="button-buy"
               >
-                Buy now
+                BUY NOW
               </Link>
             </button>
             <h4>Reviews for this item</h4>
