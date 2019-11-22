@@ -7,7 +7,10 @@ class UnconnectedProfile extends Component {
   constructor() {
     super();
     this.state = {
-      items: []
+      filteredItems: [],
+      items: [],
+      users: [],
+      filteredUser: []
     };
   }
   componentDidMount = async () => {
@@ -16,7 +19,26 @@ class UnconnectedProfile extends Component {
     body = JSON.parse(body);
     console.log("body", body);
     this.setState({ items: body });
-    console.log(this);
+    console.log(this.state.items);
+    let filteredItems = this.state.items.filter(item => {
+      return item.seller === this.props.seller;
+    });
+    this.setState({ filteredItems: filteredItems });
+    console.log(this.state);
+    let profileResponse = await fetch("/users");
+    let profileBody = await profileResponse.text();
+    profileBody = JSON.parse(profileBody);
+    this.setState({ users: profileBody });
+    console.log(this.state.users);
+    let filtUser = this.state.filteredItems.find(item => {
+      return item.seller === this.props.seller;
+    });
+    console.log(filtUser);
+    let filteredUser = this.state.users.filter(user => {
+      return user.username === filtUser.seller;
+    });
+    this.setState({ filteredUser: filteredUser });
+    console.log(this.state);
   };
   logOutHandler = () => {
     this.props.dispatch({ type: "log-out" });
@@ -46,27 +68,29 @@ class UnconnectedProfile extends Component {
             Home
           </Link>
         </div>
-        <h3>{"This profile page Belongs to: " + this.props.sellerUsername}</h3>
+        <h3>{"This profile page belongs to: " + this.props.seller}</h3>
         {/* <div>{"About Me: " + this.props.state.aboutMe}</div>  */}
-        {/* <div>
-          {this.props.items.map(item => {
-            <div>
-              <div>hello world</div>
-              <div>{item.description}</div>
-              <div>{item.price}</div>
-              <div>{item.name}</div>
-              <Link to={"/item/" + item._id}>
-                <img src={item.frontendPath} height="100px" />
-              </Link>
-            </div>;
+        <div>
+          {this.state.filteredItems.map(item => {
+            return (
+              <div>
+                <div>hello world</div>
+                <div>{item.description}</div>
+                <div>{item.price}</div>
+                <div>{item.name}</div>
+                <Link to={"/itemdetails/" + item._id}>
+                  <img src={item.frontendPath} height="100px" />
+                </Link>
+              </div>
+            );
           })}
-        </div> */}
+        </div>
       </div>
     );
   }
 }
 let mapStateToProps = state => {
-  return { username: state.username, state };
+  return { username: state.username, seller: state.seller };
 };
 let Profile = connect(mapStateToProps)(UnconnectedProfile);
 export default Profile;

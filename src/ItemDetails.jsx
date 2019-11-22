@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link, Redirect } from "react-router-dom";
-import UploadItem from "./UploadItem.jsx";
 import ItemReviews from "./ItemReviews.jsx";
 
 class UnconnectedItemDetails extends Component {
@@ -13,6 +12,9 @@ class UnconnectedItemDetails extends Component {
   };
   logOutHandler = () => {
     this.props.dispatch({ type: "log-out" });
+  };
+  sellerHandler = seller => {
+    this.props.dispatch({ type: "set-seller", seller: seller });
   };
   render = () => {
     //console.log(this);
@@ -43,7 +45,13 @@ class UnconnectedItemDetails extends Component {
           <div>
             <h3>{item.name}</h3>
             <h3>
-              <Link className="link" to={"/profile/" + item.seller}>
+              <Link
+                className="link"
+                to={"/profile/" + item.seller}
+                onClick={() => {
+                  this.sellerHandler(item.seller);
+                }}
+              >
                 {item.seller}
               </Link>
             </h3>

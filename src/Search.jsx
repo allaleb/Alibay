@@ -59,6 +59,7 @@ class UnconnectedSearch extends Component {
             <button className="buttonDelete" onClick={this.handleDelete}>
               DELETE
             </button>
+            <Link to="/marketplace">Test</Link>
           </div>
         </label>
       </div>

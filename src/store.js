@@ -5,14 +5,17 @@ let initialState = {
   items: [],
   cart: [],
   username: "",
-  query: ""
+  query: "",
+  seller: ""
 };
 
 let reducer = (state, action) => {
   if (action.type === "login-success") {
     return { ...state, loggedIn: true, username: action.username };
   }
-
+  if (action.type === "set-seller") {
+    return { ...state, seller: action.seller };
+  }
   if (action.type === "signup-success") {
     return { ...state, loggedIn: action.loggedIn };
   }
