@@ -13,6 +13,10 @@ class UnconnectedCart extends Component {
       type: "remove-item",
       cart: copy
     });
+
+    // if (this.props.cart.length === 0) {
+    //   this.props.setState({ message: "xx" });
+    // }
   };
   render = () => {
     return (
@@ -24,16 +28,13 @@ class UnconnectedCart extends Component {
             </Link>
           </div>
           <Link className="link" to="/marketplace">
-            Marketplace
+            MARKETPLACE
           </Link>
           <Link className="link" to="/myprofile">
-            My Profile
+            MY PROFILE
           </Link>
           <Link className="link" to="/" onClick={this.logOutHandler}>
-            Log Out
-          </Link>
-          <Link className="link" to="/">
-            Home
+            LOG OUT
           </Link>
         </div>
         <div classname="stripe-div">
@@ -57,7 +58,6 @@ class UnconnectedCart extends Component {
               );
             })}
           </ul>
-          <button>Checkout</button>
         </div>
       </div>
     );
