@@ -61,7 +61,7 @@ class UnconnectedLogin extends Component {
               HOME
             </Link>
           </div>
-          <h1 className="store-name">I'll take you to the candy shop</h1>
+          <h1 className="store-name">Login </h1>
           <form className="form" onSubmit={this.handleSubmit}>
             <div>Username</div>
             <input type="text" onChange={this.handleUsernameChange} />
