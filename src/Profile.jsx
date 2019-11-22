@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-// import css
 class UnconnectedProfile extends Component {
   constructor() {
     super();
@@ -10,7 +9,8 @@ class UnconnectedProfile extends Component {
       filteredItems: [],
       items: [],
       users: [],
-      filteredUser: []
+      filteredUser: [],
+      seller: ""
     };
   }
   componentDidMount = async () => {
@@ -33,16 +33,18 @@ class UnconnectedProfile extends Component {
     let filtUser = this.state.filteredItems.find(item => {
       return item.seller === this.props.seller;
     });
-    console.log(filtUser);
+    console.log("filtUser", filtUser);
     let filteredUser = this.state.users.filter(user => {
       return user.username === filtUser.seller;
     });
     this.setState({ filteredUser: filteredUser });
-    console.log(this.state);
+    console.log("filteredUser", filteredUser);
   };
+
   logOutHandler = () => {
     this.props.dispatch({ type: "log-out" });
   };
+
   render() {
     return (
       <div>
@@ -68,8 +70,18 @@ class UnconnectedProfile extends Component {
             Home
           </Link>
         </div>
-        <h3>{"This profile page belongs to: " + this.props.seller}</h3>
-        {/* <div>{"About Me: " + this.props.state.aboutMe}</div>  */}
+        <h3>{"Profile for: " + this.props.seller}</h3>
+        <div>About this seller:</div>
+        <div>
+          {this.state.filteredUser.map(user => {
+            return (
+              <div>
+                <div>{user.bio}</div>
+              </div>
+            );
+          })}
+        </div>
+        <div>{"Other items for sale from " + this.props.seller}</div>
         <div>
           {this.state.filteredItems.map(item => {
             return (
@@ -78,7 +90,7 @@ class UnconnectedProfile extends Component {
                 <div>{item.price}</div>
                 <div>{item.name}</div>
                 <Link to={"/itemdetails/" + item._id}>
-                  <img src={item.frontendPath} height="100px" />
+                  <img src={item.thumbnailPath} />
                 </Link>
               </div>
             );
