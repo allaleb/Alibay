@@ -167,6 +167,21 @@ app.post("/search", upload.none(), (req, res) => {
     });
 });
 
+app.get("/users", (req, res) => {
+  console.log("/users endpoint hit");
+  dbo
+    .collection("users")
+    .find({})
+    .toArray((error, users) => {
+      if (error) {
+        console.log("error", error);
+        res.send(JSON.stringify({ success: false }));
+        return;
+      }
+      res.send(JSON.stringify(users));
+    });
+});
+
 app.all("/*", (req, res, next) => {
   res.sendFile(__dirname + "/build/index.html");
 });
