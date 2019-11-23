@@ -48,23 +48,30 @@ class UploadItem extends Component {
 
   render = () => {
     return (
-      <form onSubmit={this.submitHandler}>
+      <form className="forms" onSubmit={this.submitHandler}>
         <input
+          className="test"
           type="text"
           onChange={this.nameChangeHandler}
           placeholder="Item Name"
         ></input>
+        <div></div>
         <input
+          className="test"
           type="text"
           onChange={this.descChangeHandler}
           placeholder="Item Description"
         ></input>
+        <div></div>
         <input
+          className="test"
           type="text"
           onChange={this.priceChangeHandler}
           placeholder="Price"
         ></input>
+        <div className="space"></div>
         <input type="file" onChange={this.fileChangeHandler} />
+        <div></div>
         <input type="submit" value="Submit item"></input>
       </form>
     );

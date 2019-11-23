@@ -77,7 +77,7 @@ class UnconnectedItemDetails extends Component {
                 BUY NOW
               </Link>
             </button>
-            <h4>Reviews for this item</h4>
+            <h4 className="feature-name">Reviews for this item:</h4>
             <ItemReviews item={item} />
           </div>
         </div>

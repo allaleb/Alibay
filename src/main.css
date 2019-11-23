@@ -371,3 +371,58 @@ input[type="submit"] {
   font-family: "Roboto", sans-serif;
   margin-bottom: 10px;
 }
+
+.feature-profile {
+  font-family: "Damion", cursive;
+  font-size: 30px;
+  margin-left: 50px;
+}
+
+.feature-me {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  margin-left: 50px;
+}
+
+.feature-upload {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  margin-left: 50px;
+}
+
+.upload {
+  display: flex;
+}
+
+.submit {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  margin-left: 0px;
+  font-family: "Fredoka One", cursive;
+}
+
+.forms {
+  margin-left: 50px;
+}
+
+.space {
+  margin-top: 10px;
+}
+
+.test {
+  margin-right: 10px;
+  padding: 15px;
+  width: 100px;
+}
+
+.cart {
+  font-family: "Fredoka One", cursive;
+  font-size: 15px;
+  margin-left: 30px;
+}
+
+.empty {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  margin-left: 30px;
+}

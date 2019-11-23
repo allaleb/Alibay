@@ -25,7 +25,7 @@ class UnconnectedCart extends Component {
   };
   isCartEmpty = () => {
     if (this.props.cart.length === 0) {
-      return <div>Your cart is empty</div>;
+      return <h4 className="empty">Your cart is empty</h4>;
     }
   };
 
@@ -68,7 +68,10 @@ class UnconnectedCart extends Component {
                   <img src={item.frontendPath} height="100px" />
                   {item.name + " " + "$" + item.price}
 
-                  <button onClick={() => this.removeItemHandler(index)}>
+                  <button
+                    className="buttonSearch"
+                    onClick={() => this.removeItemHandler(index)}
+                  >
                     Remove item from cart
                   </button>
                 </li>
@@ -77,7 +80,7 @@ class UnconnectedCart extends Component {
           })}
         </ul>
         {this.isCartEmpty()}
-        Your total will be: {this.state.totalPrice}$
+        <h4 className="cart"> Your total will be: {this.state.totalPrice}$ </h4>
         <div>
           <StripeCheckout
             className="stripe-el"

@@ -53,10 +53,14 @@ class UnconnectedMyProfile extends Component {
             LOG OUT
           </Link>
         </div>
-        <h3>{"This profile page belongs to: " + this.props.state.username}</h3>
-        <div>{"About Me: " + this.state.filteredUser.bio}</div>
+        <h3 className="feature-profile">
+          {"This profile page belongs to: " + this.props.state.username}
+        </h3>
+        <h4 className="feature-me">
+          {"About Me: " + this.state.filteredUser.bio}
+        </h4>
         <div>
-          <h4>Upload own items</h4>
+          <h4 className="feature-upload">Upload own items</h4>
           <UploadItem />
         </div>
         <div>
@@ -65,9 +69,13 @@ class UnconnectedMyProfile extends Component {
               <Link to={"/item/" + item._id}>
                 <img src={item.thumbnailPath} height="100px" />
               </Link>
-              <div>{item.description}</div>
-              <div>{item.price}</div>
-              <div>{item.name}</div>
+              <label className="search-bar">
+                <div>
+                  <div>{item.description}</div>
+                  <div>{item.price}</div>
+                  <div>{item.name}</div>
+                </div>
+              </label>
             </div>;
           })}
         </div>

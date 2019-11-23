@@ -49,14 +49,15 @@ class ItemReviews extends Component {
             return (
               <div>
                 <h4>{itemReview.reviewer}</h4>
-                <div>{itemReview.review}</div>
+                <h4 className="feature-price">{itemReview.review}</h4>
               </div>
             );
           })}
         </div>
         <form onSubmit={this.submitHandler}>
-          <h4>Submit a review for this item</h4>
+          <h4 className="submit">Submit a review for this item</h4>
           <input type="text" onChange={this.reviewChangeHandler}></input>
+          <div className="space"></div>
           <input type="submit"></input>
         </form>
       </div>
