@@ -105,14 +105,6 @@ body {
   height: 50px;
 }
 
-.navbar-home {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  background-color: #f09595;
-  height: 50px;
-}
-
 .login-form {
   display: flex;
   justify-content: center;
@@ -127,6 +119,7 @@ input[type="text"] {
   border: 1px #f1fa3c;
   height: 20px;
   margin: 5px;
+  padding: 2px;
 }
 
 input[type="file"] {
@@ -141,6 +134,7 @@ input[type="password"] {
   border: none;
   height: 20px;
   margin: 5px;
+  padding: 2px;
 }
 
 .marketplace {
@@ -185,8 +179,11 @@ input[type="password"] {
   display: flex;
   justify-content: center;
   font-size: 40px;
-  background: #ffffc5;
+  background: #fcf5b0;
   margin-top: 10px;
+  margin-left: 175px;
+  margin-right: 175px;
+  border-radius: 10px;
 }
 
 .feature-title {
@@ -204,7 +201,7 @@ input[type="password"] {
   justify-content: space-between;
   font-size: 20px;
   margin: 25px;
-  background: #ffffc5;
+  background: #fcf5b0;
 }
 
 .feature-name {
@@ -331,7 +328,8 @@ input[type="submit"] {
   border: none;
   background-color: #42dee1;
   margin-left: 5px;
-  padding: 8px;
+  padding: 6px;
+  width: 60px;
 }
 
 .search-bar {
@@ -349,7 +347,7 @@ input[type="submit"] {
 }
 
 .item-name {
-  font-family: "Damion", cursive;
+  font-family: "Roboto", sans-serif;
   font-size: 30px;
 }
 
@@ -373,8 +371,8 @@ input[type="submit"] {
 }
 
 .feature-profile {
-  font-family: "Damion", cursive;
-  font-size: 30px;
+  font-family: "Fredoka One", cursive;
+  font-size: 20px;
   margin-left: 50px;
 }
 
@@ -398,7 +396,7 @@ input[type="submit"] {
   font-family: "Roboto", sans-serif;
   font-size: 15px;
   margin-left: 0px;
-  font-family: "Fredoka One", cursive;
+  margin-top: 50px;
 }
 
 .forms {
@@ -411,8 +409,8 @@ input[type="submit"] {
 
 .test {
   margin-right: 10px;
-  padding: 15px;
-  width: 100px;
+  padding: 5px;
+  width: 200px;
 }
 
 .cart {
@@ -425,4 +423,27 @@ input[type="submit"] {
   font-family: "Roboto", sans-serif;
   font-size: 15px;
   margin-left: 30px;
+}
+
+.review-item {
+  font-family: "Roboto", sans-serif, bold;
+  border-top: 1px solid;
+  margin-right: 700px;
+  margin-top: 20px;
+}
+
+.review-input {
+  width: 300px;
+  height: 600px;
+  margin-left: -5px;
+}
+
+.remove-item {
+  border-radius: 5px;
+  border: none;
+  background-color: #42dee1;
+  padding: 6px;
+  width: 200px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

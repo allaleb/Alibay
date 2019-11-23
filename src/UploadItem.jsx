@@ -72,7 +72,7 @@ class UploadItem extends Component {
         <div className="space"></div>
         <input type="file" onChange={this.fileChangeHandler} />
         <div></div>
-        <input type="submit" value="Submit item"></input>
+        <input type="submit" value="Submit"></input>
       </form>
     );
   };

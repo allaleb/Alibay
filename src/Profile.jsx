@@ -54,45 +54,47 @@ class UnconnectedProfile extends Component {
               Jasallanda Sweet Market
             </Link>
           </div>
+          <Link className="link" to="/myprofile">
+            MY PROFILE
+          </Link>
           <Link className="link" to="/marketplace">
             MARKETPLACE
           </Link>
           <Link className="link" to="/cart">
             CART
           </Link>
-          <Link className="link" to="/myprofile">
-            MY PROFILE
-          </Link>
           <Link className="link" to="/" onClick={this.logOutHandler}>
             LOG OUT
           </Link>
         </div>
-        <h1 className="item-name">{this.props.seller}</h1>
-        <div className="seller-header">About this seller:</div>
-        <div className="seller-details">
-          {this.state.filteredUser.map(user => {
-            return (
-              <div>
-                <div>{user.bio}</div>
-              </div>
-            );
-          })}
-        </div>
-        <div className="seller-items">
-          {"Other items for sale from " + this.props.seller}
-        </div>
-        <div>
-          {this.state.filteredItems.map(item => {
-            return (
-              <div className="other-items">
-                <Link to={"/itemdetails/" + item._id}>
-                  <img src={item.thumbnailPath} />
-                </Link>
-                <div className="feature-name">{item.name}</div>
-                <div className="feature-price">{item.price}</div>
-              </div>
-            );
-          })}
+        <div className="item-details">
+          <h1 className="feature-name">{this.props.seller}</h1>
+          <div className="seller-header">About this seller:</div>
+          <div className="seller-details">
+            {this.state.filteredUser.map(user => {
+              return (
+                <div>
+                  <div>{user.bio}</div>
+                </div>
+              );
+            })}
+          </div>
+          <div className="seller-items">
+            {"Other items for sale from " + this.props.seller}
+          </div>
+          <div>
+            {this.state.filteredItems.map(item => {
+              return (
+                <div className="other-items">
+                  <Link to={"/itemdetails/" + item._id}>
+                    <img src={item.thumbnailPath} />
+                  </Link>
+                  <div className="feature-name">{item.name}</div>
+                  <div className="feature-price">{item.price}</div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     );

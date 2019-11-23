@@ -49,6 +49,9 @@ class UnconnectedMyProfile extends Component {
           <Link className="link" to="/marketplace">
             MARKETPLACE
           </Link>
+          <Link className="link" to="/cart">
+            CART
+          </Link>
           <Link className="link" to="/" onClick={this.logOutHandler}>
             LOG OUT
           </Link>
@@ -57,10 +60,10 @@ class UnconnectedMyProfile extends Component {
           {"This profile page belongs to: " + this.props.state.username}
         </h3>
         <h4 className="feature-me">
-          {"About Me: " + this.state.filteredUser.bio}
+          {/* {"About Me: " + this.state.filteredUser.bio} */}
         </h4>
         <div>
-          <h4 className="feature-upload">Upload own items</h4>
+          <h4 className="feature-upload">Upload items to sell</h4>
           <UploadItem />
         </div>
         <div>

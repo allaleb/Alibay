@@ -5,6 +5,7 @@ import ItemReviews from "./ItemReviews.jsx";
 
 class UnconnectedItemDetails extends Component {
   handleAdd = item => {
+    window.alert("Item added to cart!");
     this.props.dispatch({ type: "add-success", item: item });
   };
   buyOne = item => {
@@ -25,9 +26,13 @@ class UnconnectedItemDetails extends Component {
       return (
         <div>
           <div className="navbar-page">
-            <div className="store-mini">Jasallanda Sweet Market</div>
+            <div className="store-mini">
+              <Link className="link-store" to="/">
+                Jasallanda Sweet Market
+              </Link>
+            </div>
             <Link className="link" to="/marketplace">
-              BACK
+              MARKETPLACE
             </Link>
             <Link className="link" to="/myprofile">
               MY PROFILE
@@ -40,7 +45,7 @@ class UnconnectedItemDetails extends Component {
             </Link>
           </div>
           <div className="item-details">
-            <h1 className="item-name">{item.name}</h1>
+            <h1 className="feature-name">{item.name}</h1>
             <h3 className="feature-price">
               made by:
               <Link
@@ -57,28 +62,31 @@ class UnconnectedItemDetails extends Component {
             <h3 className="feature-price">{item.description}</h3>
             <h3 className="feature-price">{item.price}</h3>
             <h3 className="feature-price">{item.inStock}</h3>
-
-            <button
-              onClick={() => {
-                this.handleAdd(item);
-              }}
-              className="button-add"
-            >
-              ADD TO CART
-            </button>
-            <button>
-              <Link
-                to="/cart"
+            <div className="order-items">
+              <button
                 onClick={() => {
-                  this.buyOne(item);
+                  this.handleAdd(item);
                 }}
-                className="button-buy"
+                className="button-add"
               >
-                BUY NOW
-              </Link>
-            </button>
-            <h4 className="feature-name">Reviews for this item:</h4>
-            <ItemReviews item={item} />
+                ADD TO CART
+              </button>
+              <button>
+                <Link
+                  to="/cart"
+                  onClick={() => {
+                    this.buyOne(item);
+                  }}
+                  className="button-buy"
+                >
+                  BUY NOW
+                </Link>
+              </button>
+            </div>
+            <div className="review-item">
+              <h4>Reviews for this item:</h4>
+              <ItemReviews item={item} />
+            </div>
           </div>
         </div>
       );

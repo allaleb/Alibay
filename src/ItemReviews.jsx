@@ -48,17 +48,23 @@ class ItemReviews extends Component {
           {this.state.filteredReviews.map(itemReview => {
             return (
               <div>
-                <h4>{itemReview.reviewer}</h4>
-                <h4 className="feature-price">{itemReview.review}</h4>
+                <ul>
+                  {/* <h4>{itemReview.reviewer}</h4> */}
+                  <li className="feature-price">{itemReview.review}</li>
+                </ul>
               </div>
             );
           })}
         </div>
         <form onSubmit={this.submitHandler}>
-          <h4 className="submit">Submit a review for this item</h4>
-          <input type="text" onChange={this.reviewChangeHandler}></input>
+          <input
+            type="text"
+            onChange={this.reviewChangeHandler}
+            className="review-input"
+            placeholder="  Submit a review for this item..."
+          ></input>
           <div className="space"></div>
-          <input type="submit"></input>
+          <input type="submit" value="Submit"></input>
         </form>
       </div>
     );

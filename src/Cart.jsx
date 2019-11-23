@@ -59,17 +59,16 @@ class UnconnectedCart extends Component {
             LOG OUT
           </Link>
         </div>
-        <div></div>
         <ul>
           {this.props.cart.map((item, index) => {
             return (
               <div>
                 <li className="itemsInCart">
-                  <img src={item.frontendPath} height="100px" />
+                  <img src={item.thumbnailPath} />
                   {item.name + " " + "$" + item.price}
 
                   <button
-                    className="buttonSearch"
+                    className="remove-item"
                     onClick={() => this.removeItemHandler(index)}
                   >
                     Remove item from cart
@@ -80,7 +79,7 @@ class UnconnectedCart extends Component {
           })}
         </ul>
         {this.isCartEmpty()}
-        <h4 className="cart"> Your total will be: {this.state.totalPrice}$ </h4>
+        <h4 className="cart"> Your total will be: ${this.state.totalPrice} </h4>
         <div>
           <StripeCheckout
             className="stripe-el"
