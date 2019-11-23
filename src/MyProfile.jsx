@@ -56,7 +56,7 @@ class UnconnectedMyProfile extends Component {
             Home
           </Link>
         </div>
-        <h3>{"This profile page Belongs to: " + this.props.state.username}</h3>
+        <h3>{"This profile page belongs to: " + this.props.state.username}</h3>
         <div>{"About Me: " + this.state.filteredUser.bio}</div>
         <div>
           <h4>Upload own items</h4>
