@@ -40,14 +40,14 @@ class UnconnectedSearch extends Component {
     return (
       <div className="container">
         <label className="search-label" htmlFor="search-input">
-          <div className="">
+          <div className="searchInput">
             <div className="search-bar">
               <input
                 type="text"
                 name="query"
                 value={this.state.query}
-                id="search-input"
-                placeholder="Find something sweet to eat..."
+                className="search-input"
+                placeholder="Search for something sweet to eat..."
                 onChange={this.handleOnInputChange}
               />
               <button className="buttonSearch" onClick={this.handleSubmit}>

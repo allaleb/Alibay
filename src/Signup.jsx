@@ -44,16 +44,13 @@ class UnconnectedSignup extends Component {
         <div>
           <div className="navbar-page">
             <div className="store-mini">
-              <Link className="link" to="/">
+              <Link className="link-store" to="/">
                 Jasallanda Sweet Market
               </Link>
             </div>
-            <Link className="link" to="/">
-              HOME
-            </Link>
           </div>
-          <h1 className="store-name">Signup</h1>
-          <form className="form" onSubmit={this.submitHandler}>
+          <h1 className="signup-name">Signup</h1>
+          <form className="signup-form" onSubmit={this.submitHandler}>
             Username
             <input
               type="text"
@@ -69,9 +66,11 @@ class UnconnectedSignup extends Component {
             <input type="submit" value="Sign up"></input>
           </form>
           <form className="form">
-            <Link className="link" to="/login">
-              Already have an account? Click here to log in
-            </Link>
+            <div className="link-login">
+              <Link className="link" to="/login">
+                Already have an account? Click here to log in
+              </Link>
+            </div>
           </form>
         </div>
       );

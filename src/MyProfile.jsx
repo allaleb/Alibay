@@ -42,18 +42,15 @@ class UnconnectedMyProfile extends Component {
       <div>
         <div className="navbar-page">
           <div className="store-mini">
-            <Link className="link" to="/">
+            <Link className="link-store" to="/">
               Jasallanda Sweet Market
             </Link>
           </div>
           <Link className="link" to="/marketplace">
-            Marketplace
+            MARKETPLACE
           </Link>
           <Link className="link" to="/" onClick={this.logOutHandler}>
-            Log Out
-          </Link>
-          <Link className="link" to="/">
-            Home
+            LOG OUT
           </Link>
         </div>
         <h3>{"This profile page belongs to: " + this.props.state.username}</h3>

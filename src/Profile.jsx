@@ -50,29 +50,26 @@ class UnconnectedProfile extends Component {
       <div>
         <div className="navbar-page">
           <div className="store-mini">
-            <Link className="link" to="/">
+            <Link className="link-store" to="/">
               Jasallanda Sweet Market
             </Link>
           </div>
           <Link className="link" to="/marketplace">
-            Marketplace
+            MARKETPLACE
           </Link>
           <Link className="link" to="/cart">
             CART
           </Link>
           <Link className="link" to="/myprofile">
-            My Profile
+            MY PROFILE
           </Link>
           <Link className="link" to="/" onClick={this.logOutHandler}>
-            Log Out
-          </Link>
-          <Link className="link" to="/">
-            Home
+            LOG OUT
           </Link>
         </div>
-        <h3>{"Profile for: " + this.props.seller}</h3>
-        <div>About this seller:</div>
-        <div>
+        <h1 className="item-name">{this.props.seller}</h1>
+        <div className="seller-header">About this seller:</div>
+        <div className="seller-details">
           {this.state.filteredUser.map(user => {
             return (
               <div>
@@ -81,17 +78,18 @@ class UnconnectedProfile extends Component {
             );
           })}
         </div>
-        <div>{"Other items for sale from " + this.props.seller}</div>
+        <div className="seller-items">
+          {"Other items for sale from " + this.props.seller}
+        </div>
         <div>
           {this.state.filteredItems.map(item => {
             return (
-              <div>
-                <div>{item.description}</div>
-                <div>{item.price}</div>
-                <div>{item.name}</div>
+              <div className="other-items">
                 <Link to={"/itemdetails/" + item._id}>
                   <img src={item.thumbnailPath} />
                 </Link>
+                <div className="feature-name">{item.name}</div>
+                <div className="feature-price">{item.price}</div>
               </div>
             );
           })}

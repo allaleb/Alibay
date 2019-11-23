@@ -45,7 +45,7 @@ class UnconnectedCart extends Component {
       <div>
         <div className="navbar-page">
           <div className="store-mini">
-            <Link className="link" to="/">
+            <Link className="link-store" to="/">
               Jasallanda Sweet Market
             </Link>
           </div>

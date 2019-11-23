@@ -43,13 +43,13 @@ class UnconnectedHomepage extends Component {
   render = () => {
     if (this.props.loggedIn === true)
       return (
-        <div>
+        <div className="home-wrapper">
           <div className="navbar-home">
             <Link className="link" to="/" onClick={this.logOutHandler}>
-              Log Out
+              LOG OUT
             </Link>
             <Link className="link" to="/myprofile">
-              My Profile
+              MY PROFILE
             </Link>
             <Link classname="link" to="/" onClick={this.logoutHandler} />
             <Link className="link" to="/cart">
@@ -71,29 +71,34 @@ class UnconnectedHomepage extends Component {
         </div>
       );
     return (
-      <div>
-        <div className="navbar-home"></div>
-        <h1 className="store-name">Jasallanda Sweet Market</h1>
-        <div className="market-wrapper">
-          <Link
-            className="market-link"
-            onClick={this.onClickHandler}
-            to="/login"
-          >
-            MARKETPLACE
-          </Link>
-          <Link className="market-link" to="/signup">
-            SIGN UP
-          </Link>
-          <Link className="market-link" to="/login">
-            LOG IN
-          </Link>
+      <div className="home-wrapper">
+        {/* <div className="navbar-home"></div> */}
+        <div className="home-header">
+          <h1 className="store-name">Jasallanda Sweet Market</h1>
+          <div className="market-wrapper">
+            <Link
+              className="market-link"
+              onClick={this.onClickHandler}
+              to="/login"
+            >
+              MARKETPLACE
+            </Link>
+            <Link className="market-link" to="/signup">
+              SIGN UP
+            </Link>
+            <Link className="market-link" to="/login">
+              LOG IN
+            </Link>
+          </div>
         </div>
-        <div className="feature-title">Featured Items</div>
-        <div className="feature">
-          {this.state.featured.map(item => {
-            return <FeaturedItem item={item} />;
-          })}
+        <div className="homepage-lower">
+          {" "}
+          <div className="feature-title">Featured Items</div>
+          <div className="feature">
+            {this.state.featured.map(item => {
+              return <FeaturedItem item={item} />;
+            })}
+          </div>
         </div>
       </div>
     );

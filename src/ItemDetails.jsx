@@ -27,24 +27,22 @@ class UnconnectedItemDetails extends Component {
           <div className="navbar-page">
             <div className="store-mini">Jasallanda Sweet Market</div>
             <Link className="link" to="/marketplace">
-              Back
+              BACK
             </Link>
             <Link className="link" to="/myprofile">
-              My Profile
+              MY PROFILE
             </Link>
             <Link className="link" to="/cart">
-              Cart
+              CART
             </Link>
             <Link className="link" to="/" onClick={this.logOutHandler}>
-              Log Out
-            </Link>
-            <Link className="link" to="/">
-              HOME
+              LOG OUT
             </Link>
           </div>
-          <div>
-            <h3>{item.name}</h3>
-            <h3>
+          <div className="item-details">
+            <h1 className="item-name">{item.name}</h1>
+            <h3 className="feature-price">
+              made by:
               <Link
                 className="link"
                 to={"/profile/" + item.seller}
@@ -56,9 +54,9 @@ class UnconnectedItemDetails extends Component {
               </Link>
             </h3>
             <img src={item.frontendPath} height="200px" />
-            <h3>{item.description}</h3>
-            <h3>{item.price}</h3>
-            <h3>{item.inStock}</h3>
+            <h3 className="feature-price">{item.description}</h3>
+            <h3 className="feature-price">{item.price}</h3>
+            <h3 className="feature-price">{item.inStock}</h3>
 
             <button
               onClick={() => {

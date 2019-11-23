@@ -53,26 +53,26 @@ class UnconnectedLogin extends Component {
         <div>
           <div className="navbar-page">
             <div className="store-mini">
-              <Link className="link" to="/">
+              <Link className="link-store" to="/">
                 Jasallanda Sweet Market
               </Link>
             </div>
-            <Link className="link" to="/">
-              HOME
-            </Link>
           </div>
-          <h1 className="store-name">Login </h1>
-          <form className="form" onSubmit={this.handleSubmit}>
+          <h1 className="login-name">Login </h1>
+          <form className="login-form" onSubmit={this.handleSubmit}>
             <div>Username</div>
             <input type="text" onChange={this.handleUsernameChange} />
+            <br></br>
             <div>Password</div>
             <input type="password" onChange={this.handlePasswordChange} />
             <input type="submit" value="Login" />
           </form>
           <form className="form">
-            <Link className="link" to="/signup">
-              Not a member? Click here to create an account
-            </Link>
+            <div className="link-login">
+              <Link className="link" to="/signup">
+                Not a member? Click here to create an account
+              </Link>
+            </div>
           </form>
         </div>
       );

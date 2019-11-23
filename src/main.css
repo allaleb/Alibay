@@ -1,5 +1,5 @@
 body {
-  background-color: #ecfcff;
+  background: #eafbea;
   margin: 0;
 }
 
@@ -20,6 +20,35 @@ body {
   left: 200px;
   right: 200px;
   background-color: white;
+}
+
+.home-wrapper {
+  justify-content: center;
+}
+
+.login-name {
+  font-size: 60px;
+  font-family: "Fredoka One", cursive;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.signup-name {
+  font-size: 60px;
+  font-family: "Fredoka One", cursive;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.signup-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  padding: 8px;
+  height: 20px;
 }
 
 .store-name {
@@ -55,6 +84,11 @@ body {
   padding: 8px;
 }
 
+.link-login {
+  display: flex;
+  justify-content: center;
+}
+
 .link-store {
   text-decoration: none;
   color: black;
@@ -67,11 +101,7 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  background-color: #fdd8d8;
-  border-radius: 10px;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-top: 5px;
+  background-color: #f09595;
   height: 50px;
 }
 
@@ -79,29 +109,38 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  background-color: #fdd8d8;
-  border-radius: 10px;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-top: 5px;
+  background-color: #f09595;
   height: 50px;
 }
 
-.form {
+.login-form {
   display: flex;
   justify-content: center;
+  align-items: center;
   font-family: "Roboto", sans-serif;
   padding: 8px;
+  height: 20px;
 }
 
 input[type="text"] {
   border-radius: 5px;
-  border: none;
+  border: 1px #f1fa3c;
+  height: 20px;
+  margin: 5px;
 }
 
 input[type="file"] {
   border-radius: 5px;
   border: none;
+  height: 20px;
+  margin: 5px;
+}
+
+input[type="password"] {
+  border-radius: 5px;
+  border: none;
+  height: 20px;
+  margin: 5px;
 }
 
 .marketplace {
@@ -117,6 +156,7 @@ input[type="file"] {
 .market-wrapper {
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
 .market-link {
@@ -145,11 +185,8 @@ input[type="file"] {
   display: flex;
   justify-content: center;
   font-size: 40px;
-  margin-left: 60px;
-  margin-right: 60px;
-  margin-top: 5px;
-  background: #fff8cd;
-  border-radius: 10px;
+  background: #ffffc5;
+  margin-top: 10px;
 }
 
 .feature-title {
@@ -158,14 +195,16 @@ input[type="file"] {
   font-family: "Damion", cursive;
   font-size: 40px;
   margin-top: 70px;
-  margin-bottom: 0px;
+  border-bottom: 1px solid;
+  margin-left: 250px;
+  margin-right: 250px;
 }
 
 .feature-item {
   justify-content: space-between;
   font-size: 20px;
   margin: 25px;
-  background: #fff8cd;
+  background: #ffffc5;
 }
 
 .feature-name {
@@ -208,10 +247,11 @@ input[type="file"] {
   font-size: 20px;
   font-style: italic;
   color: #444;
-  box-sizing: border-box;
   outline: none;
-  border-radius: 10px;
+  height: 25px;
   font-family: "Roboto", sans-serif;
+  border: 1px #f1fa3c;
+  border-radius: 10px;
 }
 
 .market-sub {
@@ -281,10 +321,6 @@ input[type="file"] {
   margin-right: 5px;
 }
 
-.item-name {
-  font-family: "Fredoka One", cursive;
-}
-
 .search {
   display: flex;
   margin-right: 5px;
@@ -301,4 +337,37 @@ input[type="submit"] {
 .search-bar {
   display: flex;
   margin: 10px;
+}
+
+.search-input {
+  align-items: center;
+  height: 30px;
+}
+
+.item-details {
+  margin-left: 50px;
+}
+
+.item-name {
+  font-family: "Damion", cursive;
+  font-size: 30px;
+}
+
+.seller-header {
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 10px;
+}
+
+.seller-details {
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 30px;
+}
+
+.other-items {
+  margin-bottom: 50px;
+}
+
+.seller-items {
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 10px;
 }

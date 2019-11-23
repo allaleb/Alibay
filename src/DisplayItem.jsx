@@ -8,8 +8,8 @@ class DisplayItem extends Component {
         <Link to={"/itemdetails/" + this.props.item._id}>
           <img src={this.props.item.thumbnailPath} />
         </Link>
-        <div className="item-name">{this.props.item.name}</div>
-        <div>{this.props.item.price}</div>
+        <div className="feature-name">{this.props.item.name}</div>
+        <div className="feature-price">{this.props.item.price}</div>
       </div>
     );
   }
