@@ -39,7 +39,7 @@ class ItemReviews extends Component {
     });
     let body = await response.text();
     body = JSON.parse(body);
-    window.alert("Review Uploaded successfully");
+    window.alert("Thank you for your review!");
   };
 
   render = () => {
@@ -50,7 +50,6 @@ class ItemReviews extends Component {
             return (
               <div>
                 <ul>
-                  {/* <h4>{itemReview.reviewer}</h4> */}
                   <li className="feature-price">{itemReview.review}</li>
                 </ul>
               </div>
