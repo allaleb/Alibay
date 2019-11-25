@@ -1,13 +1,15 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
-class UploadItem extends Component {
+class UnconnectedUploadItem extends Component {
   constructor() {
     super();
     this.state = {
       description: "",
       price: "",
       name: "",
-      file: ""
+      file: "",
+      username: ""
     };
   }
 
@@ -39,7 +41,7 @@ class UploadItem extends Component {
     data.append("description", this.state.description);
     data.append("price", this.state.price);
     data.append("name", this.state.name);
-    data.append("seller", this.state.seller);
+    data.append("seller", this.props.username);
     data.append("img", this.state.file);
     let response = await fetch("/upload-item", { method: "POST", body: data });
     let body = await response.text();
@@ -53,21 +55,21 @@ class UploadItem extends Component {
           className="test"
           type="text"
           onChange={this.nameChangeHandler}
-          placeholder="Item Name"
+          placeholder=" Item Name"
         ></input>
         <div></div>
         <input
           className="test"
           type="text"
           onChange={this.descChangeHandler}
-          placeholder="Item Description"
+          placeholder=" Item Description"
         ></input>
         <div></div>
         <input
           className="test"
           type="text"
           onChange={this.priceChangeHandler}
-          placeholder="Price"
+          placeholder=" Price"
         ></input>
         <div className="space"></div>
         <input type="file" onChange={this.fileChangeHandler} />
@@ -77,5 +79,10 @@ class UploadItem extends Component {
     );
   };
 }
+let mapStateToProps = state => {
+  return { username: state.username };
+};
+
+let UploadItem = connect(mapStateToProps)(UnconnectedUploadItem);
 
 export default UploadItem;

@@ -17,21 +17,21 @@ class UnconnectedMyProfile extends Component {
     let response = await fetch("/all-items");
     let body = await response.text();
     body = JSON.parse(body);
-    console.log("body", body);
     this.setState({ items: body });
-    console.log(this.state.items);
     let filteredItem = this.state.items.filter(item => {
       return item.seller === this.props.username;
     });
-    console.log(filteredItem);
     this.setState({ filteredItem: filteredItem });
+    console.log("filteredItem", filteredItem);
     let profileResponse = await fetch("/users");
     let profileBody = await profileResponse.text();
     profileBody = JSON.parse(profileBody);
     this.setState({ users: profileBody });
+    console.log("users", this.state.users);
     let filteredUser = this.state.users.filter(user => {
-      return user.username === this.state.filteredItem.seller;
+      return user.username === this.props.username;
     });
+    console.log("filteredUser", filteredUser);
     this.setState({ filteredUser: filteredUser });
   };
   logOutHandler = () => {
@@ -60,7 +60,9 @@ class UnconnectedMyProfile extends Component {
           {"This profile page belongs to: " + this.props.state.username}
         </h3>
         <h4 className="feature-me">
-          {/* {"About Me: " + this.state.filteredUser.bio} */}
+          {this.state.filteredUser.map(user => {
+            return <div className="feature-price">{user.bio}</div>;
+          })}
         </h4>
         <div>
           <h4 className="feature-upload">Upload items to sell</h4>

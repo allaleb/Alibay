@@ -14,6 +14,14 @@ class UnconnectedCart extends Component {
   componentDidMount = () => {
     this.priceHandler();
   };
+  priceHandler = () => {
+    let totalPrice = 0;
+    this.props.cart.forEach(item => {
+      console.log(item);
+      totalPrice = totalPrice + Number(item.price);
+    });
+    this.setState({ totalPrice: totalPrice });
+  };
   removeItemHandler = index => {
     let copy = this.props.cart.slice();
     copy.splice(index, 1);
@@ -27,15 +35,6 @@ class UnconnectedCart extends Component {
     if (this.props.cart.length === 0) {
       return <h4 className="empty">Your cart is empty</h4>;
     }
-  };
-
-  priceHandler = () => {
-    let totalPrice = 0;
-    this.props.cart.forEach(item => {
-      console.log(item);
-      totalPrice = totalPrice + Number(item.price);
-    });
-    this.setState({ totalPrice: totalPrice });
   };
   logHandler = () => {
     console.log(this);
@@ -65,8 +64,8 @@ class UnconnectedCart extends Component {
               <div>
                 <li className="itemsInCart">
                   <img src={item.thumbnailPath} />
-                  {item.name + " " + "$" + item.price}
-
+                  <div>{item.name}</div>
+                  <div>{item.price}</div>
                   <button
                     className="remove-item"
                     onClick={() => this.removeItemHandler(index)}
