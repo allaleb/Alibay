@@ -20,7 +20,7 @@ class UnconnectedCart extends Component {
       console.log(item);
       totalPrice = totalPrice + Number(item.price);
     });
-    this.setState({ totalPrice: totalPrice });
+    return totalPrice;
   };
   removeItemHandler = index => {
     let copy = this.props.cart.slice();
@@ -30,6 +30,7 @@ class UnconnectedCart extends Component {
       type: "remove-item",
       cart: copy
     });
+    console.log(this);
   };
   isCartEmpty = () => {
     if (this.props.cart.length === 0) {
@@ -78,7 +79,7 @@ class UnconnectedCart extends Component {
           })}
         </ul>
         {this.isCartEmpty()}
-        <h4 className="cart"> Your total will be: ${this.state.totalPrice} </h4>
+        <h4 className="cart"> Your total will be: ${this.priceHandler()} </h4>
         <div>
           <StripeCheckout
             className="stripe-el"
