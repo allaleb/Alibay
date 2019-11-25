@@ -5,7 +5,7 @@ class UnconnectedUploadItem extends Component {
   constructor() {
     super();
     this.state = {
-      description: "",git
+      description: "",
       price: "",
       name: "",
       file: "",

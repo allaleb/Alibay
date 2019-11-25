@@ -39,6 +39,7 @@ class ItemReviews extends Component {
     });
     let body = await response.text();
     body = JSON.parse(body);
+    window.alert("Review Uploaded successfully");
   };
 
   render = () => {
