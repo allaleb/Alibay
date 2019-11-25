@@ -47,7 +47,7 @@ class UnconnectedItemDetails extends Component {
           <div className="item-details">
             <h1 className="feature-name">{item.name}</h1>
             <h3 className="feature-price">
-              made by:
+              Made By:
               <Link
                 className="link"
                 to={"/profile/" + item.seller}
