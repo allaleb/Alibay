@@ -5,7 +5,7 @@ class UnconnectedUploadItem extends Component {
   constructor() {
     super();
     this.state = {
-      description: "",
+      description: "",git
       price: "",
       name: "",
       file: "",
@@ -46,6 +46,7 @@ class UnconnectedUploadItem extends Component {
     let response = await fetch("/upload-item", { method: "POST", body: data });
     let body = await response.text();
     console.log("body", body);
+    window.alert("Item successfully uploaded!");
   };
 
   render = () => {
