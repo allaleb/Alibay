@@ -70,10 +70,7 @@ class UnconnectedMyProfile extends Component {
         </div>
         <div>
           {this.state.filteredItem.map(item => {
-            <div>
-              <Link to={"/item/" + item._id}>
-                <img src={item.thumbnailPath} height="100px" />
-              </Link>
+           ccccc
               <label className="search-bar">
                 <div>
                   <div>{item.description}</div>
