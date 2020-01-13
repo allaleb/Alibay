@@ -22,5 +22,5 @@ Users can:
 *purchase button on the items detail page 
 
 
-**YOU CAN FIND THIS PORJECT ON YOUTUBE**
+**YOU CAN FIND THIS PROJECT ON YOUTUBE**
 https://www.youtube.com/watch?v=8bx4J_DBvO8 
