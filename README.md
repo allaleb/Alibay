@@ -1,3 +1,5 @@
+**ALIBAY**
+
 I worked with 2 other people, and was in charge of the Front-End. 
 
 Users can: 
@@ -20,5 +22,5 @@ Users can:
 *purchase button on the items detail page 
 
 
-Here is the link: 
+**YOU CAN FIND THIS PORJECT ON YOUTUBE**
 https://www.youtube.com/watch?v=8bx4J_DBvO8 
